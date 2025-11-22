@@ -3,75 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Professional Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <!--- FONTS --->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
-
-<!--END OF FONT CODE-->
-<link rel="stylesheet" href="portfoliostyle.css">
+  <link rel="stylesheet" href="portfoliostyle.css">
+  <style>
+    
+  </style>
 </head>
-
 <body>
-
-<!-- NAVIGATION BAR ON THE BOTTOM SOMEWHERE -->
-<nav class="navlinks" >
-  <a href="#" id="navlinks-homelogo"><i class="fa-solid fa-user fa-2x  "></i></a>
-
-  <a href="#" id="navlinks-projects"><i class="fa-solid fa-folder-plus fa-2x"></i></a>
-
-  <a href="#container2" id="navlinks-skills"><i class="fa-solid fa-briefcase fa-2x"></i></a>
-
-  <a href="#logocontainerFOOTER" id="navlinks-contact"><i class="fa-solid fa-share fa-2x"></i></a>
-</nav>
-
-
-<!-- ----------------------- -->
-
+  <script>
+    
+  </script>
 
   <header>
-  <section class="logo">Ritesh</section>
-<nav class="navlinks2" >
+    <div>
+      <h1>Your Name</h1>
+      <p style="color:#ccc;">Web Developer | Frontend & Backend</p>
+    </div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <a href="#" id="" title="Visit GitHub"  class="logos"><i class="fa-brands fa-github fa-2x"></i></a>
+  <section id="summary">
+    <h2>Summary</h2>
+    <div class="card">
+      <p>I build responsive, fast web applications focusing on clean design and performance. Skilled in frontend frameworks and backend APIs.</p>
+      <a href="mailto:you@example.com" class="button">Contact Me</a>
+    </div>
+  </section>
 
-  <a href="mailto:kharalritesh@gmail.com" target="_blank" title="Send an Mail" class="logos"><i class="fa-solid fa-envelope fa-2x"></i></a>
-</nav>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card">
+      <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>React, Node.js, Express</li>
+        <li>MongoDB, PostgreSQL</li>
+        <li>Git, Figma, Docker</li>
+      </ul>
+    </div>
+  </section>
 
-<section id="notificationlogo"><i class="fa-solid fa-bell fa-2x"></i></section>
-</header>
-
-  <main>
-    
-    <div id="container1">
-
-      <section id="sidetext">
-      <h1>Ritesh Kharal</h1>
-      <p>Hi! My name is Ritesh,a student on his way to be a programmer.</p>
-      </section>
-
-      
-
-      <div id="boxes-container" class="boxes">
-        
-        
-        <a id="container1-CONTACTBTN">Contact!</a>
-        <a id="container1-PROJECTBTN">View Projects!</a>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Portfolio Website</h3>
+      <p>Designed and developed a personal website using HTML, CSS, and JS. Deployed via Netlify.</p>
+      <a href="#" class="button">View Project</a>
     </div>
 
-</div>
-  <div id="container2">
+    <div class="card">
+      <h3>API Service</h3>
+      <p>Created a REST API using Node.js and Express for managing user data securely.</p>
+      <a href="#" class="button">View Code</a>
+    </div>
+  </section>
 
-  </div>
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card">
+      <h3>Software Developer — Acme Corp (2022–Present)</h3>
+      <ul>
+        <li>Developed interactive UI components with React.</li>
+        <li>Reduced page load time by 30% through code optimization.</li>
+      </ul>
+    </div>
 
-  <script src="index.js">
-  </script>
+    <div class="card">
+      <h3>Intern — Beta Labs (2021–2022)</h3>
+      <ul>
+        <li>Built internal dashboards and automation tools.</li>
+        <li>Collaborated with design team to improve UX.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: you@example.com</p>
+      <p>LinkedIn: linkedin.com/in/yourname</p>
+      <p>GitHub: github.com/yourusername</p>
+      <a href="mailto:you@example.com" class="button">Send Email</a>
+    </div>
+  </section>
 </body>
 
-  <script src="https://kit.fontawesome.com/0414f65e3e.js" crossorigin="anonymous"></script> 
-
+<script src="index.js"></script>
 </html>

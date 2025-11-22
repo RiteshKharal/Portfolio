@@ -1,55 +1,14 @@
-// navlinks, active member effect changer
-{
- const homelogo = document.getElementById('navlinks-homelogo');
-const projectlogo = document.getElementById('navlinks-projects');
-const skilllogo = document.getElementById('navlinks-skills');
-const contact = document.getElementById('navlinks-contact');
+  const totalStars = 50;
 
-const navItems = [homelogo, projectlogo, skilllogo, contact];
+  for (let i = 0; i < totalStars; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
 
-navItems.forEach(item => {
-  item.classList.remove('activelink');
-  item.classList.add('nonactivelink');
-});
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.top = Math.random() * -100 + 'vh';
 
-homelogo.classList.replace('nonactivelink', 'activelink');
+    star.style.animationDuration = (3 + Math.random() * 9) + 's';
+    star.style.animationDelay = Math.random() * 5 + 's';
 
-navItems.forEach(clickedItem => {
-  clickedItem.onclick = () => {
-    navItems.forEach(item => {
-      item.classList.remove('activelink');
-      item.classList.add('nonactivelink');
-    });
-    clickedItem.classList.add('activelink');
-    clickedItem.classList.remove('nonactivelink');
-  };
-});
-
-
-}
-
-// container1, all functions
-{
-  // let BoxSwitcher_counter = 1;
-  // let PrevBoxSwitcher_counter = 0;
-  // const boxes = document.querySelectorAll(".boxes");
-  
-  // boxes[0].classList.add("activeBOX");
-
-  // function BoxSwitcher() {
-  //   boxes[BoxSwitcher_counter].classList.add("activeBOX");
-  //   boxes[PrevBoxSwitcher_counter].classList.remove("activeBOX");
-
-  //   PrevBoxSwitcher_counter = BoxSwitcher_counter;
-
-  //   BoxSwitcher_counter = (BoxSwitcher_counter + 1) % boxes.length;
-  // }
-
-  // setInterval(BoxSwitcher, 5000);
-}
-
-
-// container2, functions
-{
-  
-}
+    document.body.appendChild(star);
+  }
