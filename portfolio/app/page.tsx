@@ -2,6 +2,7 @@ import Animatedbtn1 from './components/AnimatedBtn.jsx'
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import ProjectCard from './components/ProjectsCard.jsx'
 
 export default function Home() {
   return (
@@ -91,11 +92,16 @@ export default function Home() {
       <section id="projects" className="mt-32 max-w-3xl w-full">
         <h2 className="text-3xl font-bold mb-6">Projects</h2>
 
-        <ProjectCard
-          title="Portfolio"
-          description="A clean website made by me showing my advancements."
-          tech="React, Next.js, Tailwind"
-        />
+<ProjectCard
+  title="Portfolio Website"
+  description="A clean minimal portfolio with modern UI."
+  image="./app/assets/Portfolioimg.png"
+  tech={['React', 'Tailwind', 'next.js']}
+  live="https://riteshkharal.vercel.app/"
+  github="https://github.com/RiteshKharal/Portfolio-Files"
+/>
+
+
 
         {/* <ProjectCard
           title="Project Two"
@@ -145,20 +151,3 @@ function SkillTag({ text }: { text: string }) {
   );
 }
 
-function ProjectCard({
-  title,
-  description,
-  tech,
-}: {
-  title: string;
-  description: string;
-  tech: string;
-}) {
-  return (
-    <div className="border rounded-xl p-6 mb-6 bg-white shadow-sm hover:shadow-lg transition cursor-pointer">
-      <h3 className="text-xl font-semibold">{title}</h3>
-      <p className="opacity-80 mt-2">{description}</p>
-      <p className="mt-2 text-sm font-medium opacity-70">Tech: {tech}</p>
-    </div>
-  );
-}
