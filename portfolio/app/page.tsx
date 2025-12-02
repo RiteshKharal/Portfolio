@@ -21,22 +21,12 @@ export default function Home() {
   </p>
 
   <div className="relative top-[140px] flex gap-20 justify-center text-2xl">
-    {/* <a href="#skills" className="px-5 py-2 rounded-xl bg-neutral-200 shadow hover:scale-105 transition">
-      Skills
-    </a>
-    <a href="#projects" className="px-5 py-2 rounded-xl bg-neutral-200 shadow hover:scale-105 transition">
-      Projects
-    </a>
-    <a href="#experience" className="px-5 py-2 rounded-xl bg-neutral-200 shadow hover:scale-105 transition">
-      Experience
-    </a> */}
-
 
         <Animatedbtn1 btntext='My Skills' sendto={'#skills'}/>
         <Animatedbtn1 btntext='My Projects' sendto={'#projects'}/>
         <Animatedbtn1 btntext='About Me' sendto={'#about'}/>
 
-        <p className='text-[10px] translate-x-[620px] translate-y-36 inline-block absolute opacity-80 font-mono cursor-pointer' title='Barely rememberd the theme But Liked the blurry pic in my head'>Inspired By a video online</p>
+        <p className='text-2.5 translate-x-[620px] translate-y-36 inline-block absolute opacity-80 font-mono cursor-pointer' title='Barely rememberd the theme But Liked the blurry pic in my head'>Inspired By a video online</p>
 
   </div>
 </section>
