@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+// import DragonFollower from './components/MouseFollower'
+import { Smooch_Sans } from 'next/font/google';
+
+const smooch = Smooch_Sans({
+  subsets:['latin'],
+  weight:['500'],
+})
 
 
 export const metadata: Metadata = {
@@ -9,15 +16,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth ">
+
+    <html lang="en" className="scroll-smooth">
       <body className="bg-neutral-100 text-neutral-900 antialiased">
         <header className="flex justify-between items-center px-6 py-4 text-lg font-medium">
-          <div className="font-semibold text-xl">Ritesh</div>
+          <div className={` ${smooch.className} font-semibold text-4xl`}>Ritesh</div>
           <nav className="flex gap-6">
             <a href="#contact" className="hover:opacity-70 transition">Contact</a>
             
           </nav>
         </header>
+
+        {/* <DragonFollower></DragonFollower> */}
 
         <main>{children}</main>
 
