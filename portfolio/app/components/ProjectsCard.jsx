@@ -18,7 +18,7 @@ const ProjectsDetails = [
 
 export function ProjectCard({ title, description, image, tech, live, github }) {
   return (
-    <div className="max-w-sm border border-gray-300 rounded-xl p-5 shadow-sm hover:shadow-md transition grid">
+    <div className="max-w-sm border border-gray-300 rounded-xl p-5 shadow-sm hover:shadow-md transition grid gap-4 min-[90vw]:max-w-full">
       <div className="w-full h-full overflow-hidden rounded-lg mb-4">
         <Image 
           src={image} 

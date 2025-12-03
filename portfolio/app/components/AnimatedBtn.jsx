@@ -1,6 +1,6 @@
 function AnimatedBtn1({ btntext, sendto }) {
   return (
-    <a className="relative inline-block px-[30px] py-[15px] text-[#000000] uppercase font-semibold text-[20px] no-underline group overflow-hidden" href={sendto}>
+    <a className="relative inline-block px-[30px] py-[15px] text-[#000000] uppercase font-semibold text-[20px] no-underline group overflow-hidden select-none" href={sendto}>
       <span className="relative z-10">{btntext}</span>
 
       {/* TOP LEFT */}

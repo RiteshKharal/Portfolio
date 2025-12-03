@@ -4,6 +4,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import ManageProjectCardsShown from './components/ProjectsCard.jsx';
 // import PortfolioImage from 'app/media/Portfolioimg.png'
+import Image from 'next/image.js';
 
 export default function Home() {
 
@@ -14,21 +15,24 @@ export default function Home() {
       
       {/* HERO */}
       <section className="mt-22 text-center max-w-2xl h-140 flex flex-col justify-center items-center mx-auto">
-  <h1 className={` text-5xl font-bold mb-3 cursor-pointer`} title='[GOD]' >Ritesh Kharal.</h1>
+  <h1 className={` text-xl font-bold mb-3 cursor-pointer md:text-5xl`} title='[GOD]' >Ritesh Kharal.</h1>
 
-  <p className="text-lg opacity-80 mb-8 ">
-    Yo! I chase whatever I&apos;m curious about, and coding might be at the top of that list.
+  <Image src={'/BackgroundImage.jpg'} alt='PortolioImage' width={500} height={500} className='absolute rounded-full -rotate-12 opacity-10 bg-blend-color select-none pointer-events-none'></Image>   
+
+  <p className="text-lg opacity-80 mb-8 w-[50%] md:w-full">
+    Yo! I like what i like.
   </p>
 
-  <div className="relative top-[140px] flex gap-20 justify-center text-2xl">
+  <div className="relative top-[115px] flex gap-20 justify-center text-2xl flex-col md:flex-row">
 
         <Animatedbtn1 btntext='My Skills' sendto={'#skills'}/>
         <Animatedbtn1 btntext='My Projects' sendto={'#projects'}/>
         <Animatedbtn1 btntext='About Me' sendto={'#about'}/>
 
-        <p className='text-2.5 translate-x-[620px] translate-y-36 inline-block absolute opacity-80 font-mono cursor-pointer' title='Barely rememberd the theme But Liked the blurry pic in my head'>Inspired By a video online</p>
-
   </div>
+
+        <p className='text-2.5 translate-y-50 block opacity-0 font-mono cursor-pointer md:opacity-80' title='Barely remembered the theme But Liked the blurry pic in my head'>Inspired From a video online</p>
+
 </section>
 
 
@@ -66,8 +70,8 @@ export default function Home() {
               Experience creating APIs, authentication systems, and server-side logic.
             </p>
             <div className="flex flex-wrap gap-3 mt-3">
-              <SkillTag text="Django" />
-              <SkillTag text="REST APIs" />
+              {/* <SkillTag text="Django" /> */}
+              {/* <SkillTag text="REST APIs" /> */}
               <SkillTag text="Node.js (basic)" />
             </div>
           </div>
@@ -90,7 +94,7 @@ export default function Home() {
   {/* Your projects array */}
   
 
-  <div className="grid grid-cols-2 gap-10">
+  <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
     
       <ManageProjectCardsShown></ManageProjectCardsShown>
 
@@ -107,15 +111,15 @@ export default function Home() {
           <input className="border p-3 rounded-lg" placeholder="Last name" />
           <input className="border p-3 rounded-lg" placeholder="Email" />
           <textarea className="border p-3 rounded-lg" rows={4} placeholder="Message"></textarea>
-          <a className="bg-black text-white py-3 rounded-lg hover:opacity-80 transition text-center" href='mailto@kharalritesh@gmail.com'>
+          <a className="bg-black text-white py-3 rounded-lg hover:opacity-80 transition text-center" href='mailto:kharalritesh@gmail.com'>
             Submit
           </a>
         </form>
 
-        <section className='float-right translate-y-[-30px] gap-5 flex m-[-3%] font-bold text-2xl '>
-          <a href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/" className='hover:text-blue-600' target='_blank'><FaLinkedin/></a>
-          <a href="" className='underline hover:text-blue-800 underline-offset-2 '><FaFacebookSquare/></a>
-          <a href="" className='underline underline-offset-2 hover:text-red-900 '><FaYoutube/></a>
+        <section className='flex gap-5 font-bold text-xl -translate-y-10 justify-center md:justify-start md:translate-x-140 m-15 md:m-0 w-fit'>
+          <a href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/" className='hover:bg-blue-200 bg-gray-300 p-3 rounded-full' target='_blank'><FaLinkedin/></a>
+          <a href="" className=' hover:bg-blue-300 bg-gray-300 p-3 rounded-full'><FaFacebookSquare/></a>
+          <a href="" className=' hover:bg-red-900 bg-gray-300 p-3 rounded-full '><FaYoutube/></a>
 
         </section>
       </section>
