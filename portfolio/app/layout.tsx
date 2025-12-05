@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 // import DragonFollower from './components/MouseFollower'
 import { Smooch_Sans } from 'next/font/google';
+// import FallingFlames from './components/LeafPetals'
 
 const smooch = Smooch_Sans({
   subsets:['latin'],
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
 
+        {/* <FallingFlames amount={20}></FallingFlames> */}
         {/* <DragonFollower></DragonFollower> */}
 
         <main>{children}</main>
