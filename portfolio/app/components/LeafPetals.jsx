@@ -46,10 +46,10 @@ export default function FallingFlames({ amount = 60 }) {
         @keyframes flameFall {
           0% {
             transform: translateY(-15vh);
-            opacity: 0.4;
+            opacity: 1;
           }
           10% {
-            opacity: 0.4;
+            opacity: 1;
           }
           100% {
             transform: translateY(calc(var(--DocumentHeight) + 15vh));
