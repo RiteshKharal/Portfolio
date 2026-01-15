@@ -1,10 +1,14 @@
 import Animatedbtn1 from './components/AnimatedBtn.jsx'
-import { FaLinkedin } from "react-icons/fa";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
+// import { FaLinkedin } from "react-icons/fa";
+// import { FaFacebookSquare } from "react-icons/fa";
+// import { FaYoutube } from "react-icons/fa";
 import ManageProjectCardsShown from './components/ProjectsCard.jsx';
-// import PortfolioImage from 'app/media/Portfolioimg.png'
 import Image from 'next/image.js';
+import { Josefin_Sans, Righteous, Smooch_Sans } from 'next/font/google';
+
+const josefin = Josefin_Sans({ subsets: ['latin'], weight: ['100','400','700'] });
+const righteous = Righteous({ subsets: ['latin'], weight: ['400'] });
+const smooch = Smooch_Sans({ subsets: ['latin'], weight: ['100','900'] });
 
 export default function Home() {
 
@@ -15,15 +19,15 @@ export default function Home() {
       
       {/* HERO */}
       <section className="mt-22 text-center max-w-2xl h-140 flex flex-col justify-center items-center mx-auto">
-  <h1 className={` text-xl font-bold mb-3 cursor-pointer md:text-5xl`} title='[GOD]' >Ritesh Kharal.</h1>
+  <h1 className={` text-xl font-bold mb-3 cursor-pointer md:text-5xl ${josefin.className}`} title='[GOD]' >Ritesh Kharal.</h1>
 
-  <Image src={'/BackgroundImage.jpg'} alt='PortolioImage' width={500} height={500} className='absolute rounded-full -rotate-12 opacity-10 bg-blend-color select-none pointer-events-none'></Image>   
+  <Image src={'/BackgroundImage.jpg'} alt='Image' width={500} height={500} className='absolute rounded-full -rotate-12 opacity-10 bg-blend-color select-none pointer-events-none' loading="eager"></Image>   
 
   <p className="text-lg opacity-80 mb-8 w-[50%] md:w-full">
-    Yo! I like what i like.
+    📍Lumbini, Nepal
   </p>
 
-  <div className="relative top-[115px] flex gap-20 justify-center text-2xl flex-col md:flex-row">
+  <div className="relative top-45 flex gap-20 justify-center text-2xl flex-col md:flex-row">
 
         <Animatedbtn1 btntext='My Skills' sendto={'#skills'}/>
         <Animatedbtn1 btntext='My Projects' sendto={'#projects'}/>
@@ -31,7 +35,8 @@ export default function Home() {
 
   </div>
 
-        <p className='text-2.5 translate-y-50 block opacity-0 font-mono cursor-pointer md:opacity-80' title='Barely remembered the theme But Liked the blurry pic in my head'>Inspired From a video online</p>
+        {/* <p className='text-2.5 translate-y-50 block opacity-0 font-mono cursor-pointer md:opacity-80' title='Barely remembered the theme But Liked the blurry pic in my head'>Inspired From a video online</p> */}
+
 
 </section>
 
@@ -72,7 +77,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-3 mt-3">
               {/* <SkillTag text="Django" /> */}
               {/* <SkillTag text="REST APIs" /> */}
-              <SkillTag text="Node.js (basic)" />
+              <SkillTag text="Node.js" />
             </div>
           </div>
 
@@ -104,24 +109,24 @@ export default function Home() {
 
       {/* CONTACT */}
       <section id="contact" className="mt-32 max-w-3xl w-full mb-20">
-        <h2 className="text-3xl font-bold mb-6">Contact</h2>
+        {/* <h2 className="text-3xl font-bold mb-6">Contact</h2> */}
 
-        <form className="flex flex-col gap-4 max-w-md">
-          <input className="border p-3 rounded-lg" placeholder="First name" />
-          <input className="border p-3 rounded-lg" placeholder="Last name" />
-          <input className="border p-3 rounded-lg" placeholder="Email" />
-          <textarea className="border p-3 rounded-lg" rows={4} placeholder="Message"></textarea>
-          <a className="bg-black text-white py-3 rounded-lg hover:opacity-80 transition text-center" href='mailto:kharalritesh@gmail.com'>
+        {/* <form className="flex flex-col gap-4 max-w-md">
+          <input className="border p-3 rounded-lg border-primary" placeholder="First name" />
+          <input className="border p-3 rounded-lg border-primary" placeholder="Last name" />
+          <input className="border p-3 rounded-lg border-primary" placeholder="Email" />
+          <textarea className="border p-3 rounded-lg border-primary" rows={4} placeholder="Message"></textarea>
+          <a className="bg-primary text-background py-3 rounded-lg hover:opacity-80 transition text-center" href='mailto:kharalritesh@gmail.com'>
             Submit
           </a>
-        </form>
+        </form> */}
 
-        <section className='flex gap-5 font-bold text-xl -translate-y-10 justify-center md:justify-start md:translate-x-140 m-15 md:m-0 w-fit'>
-          <a href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/" className='hover:bg-blue-200 bg-gray-300 p-3 rounded-full' target='_blank'><FaLinkedin/></a>
-          <a href="" className=' hover:bg-blue-300 bg-gray-300 p-3 rounded-full'><FaFacebookSquare/></a>
-          <a href="" className=' hover:bg-red-900 bg-gray-300 p-3 rounded-full '><FaYoutube/></a>
+        {/* <section className='flex gap-5 font-bold text-xl -translate-y-10 justify-center md:justify-start md:translate-x-140 m-15 md:m-0 w-fit'>
+          <a href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/" className='hover:bg-blue-200 bg-background p-3 rounded-full' target='_blank'><FaLinkedin/></a>
+          <a href="" className=' hover:bg-blue-300 bg-background p-3 rounded-full'><FaFacebookSquare/></a>
+          <a href="" className=' hover:bg-red-900 bg-background p-3 rounded-full '><FaYoutube/></a>
 
-        </section>
+        </section> */}
       </section>
 
     </div>
@@ -131,7 +136,7 @@ export default function Home() {
 
 function SkillTag({ text }: { text: string }) {
   return (
-    <span className="px-3 py-1 text-sm bg-neutral-200 rounded-xl shadow hover:opacity-60 cursor-pointer">
+    <span className="px-3 py-1 text-sm bg-background rounded-xl shadow hover:opacity-60 cursor-pointer ">
       {text}
     </span>
   );

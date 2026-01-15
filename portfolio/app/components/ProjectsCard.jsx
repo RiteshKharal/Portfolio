@@ -18,25 +18,25 @@ const ProjectsDetails = [
 
 export function ProjectCard({ title, description, image, tech, live, github }) {
   return (
-    <div className="max-w-sm border border-gray-300 rounded-xl p-5 shadow-sm hover:shadow-md transition grid gap-4 min-[90vw]:max-w-full">
+    <div className="max-w-sm border border-border bg-card rounded-xl p-5 shadow-sm hover:shadow-md transition grid gap-4 min-[90vw]:max-w-full shadow-shadow">
       <div className="w-full h-full overflow-hidden rounded-lg mb-4">
         <Image 
           src={image} 
-          alt={title} 
+          alt={title}
           width={800} 
           height={800} 
           className="w-full h-full object-cover" 
         />
       </div>
 
-      <h2 className="text-xl font-semibold mb-1">{title}</h2>
-      <p className="text-gray-600 text-sm mb-4">{description}</p>
+      <h2 className="text-xl font-semibold mb-1 text-card-foreground">{title}</h2>
+      <p className="text-card-foreground/70 text-sm mb-4">{description}</p>
 
       <div className="mb-4">
-        <p className="text-sm font-medium text-gray-700">Tech Used:</p>
+        <p className="text-sm font-medium text-card-foreground">Tech Used:</p>
         <div className="flex gap-2 mt-1 flex-wrap">
           {tech.map((item, i) => (
-            <span key={i} className="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-md">
+            <span key={i} className="px-2 py-1 bg-background text-primary text-xs rounded-md border border-primary/20">
               {item}
             </span>
           ))}
@@ -47,14 +47,14 @@ export function ProjectCard({ title, description, image, tech, live, github }) {
         <a
           href={live}
           target="_blank"
-          className="w-full text-center py-2 border border-gray-800 rounded-lg text-sm font-medium hover:bg-gray-800 hover:text-white transition"
+          className="w-full text-center py-2 border  rounded-lg text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition"
         >
           Live Demo
         </a>
         <a
           href={github}
           target="_blank"
-          className="w-full text-center py-2 border border-gray-800 rounded-lg text-sm font-medium hover:bg-gray-800 hover:text-white transition"
+          className="w-full text-center py-2 border border-primary rounded-lg text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition"
         >
           GitHub
         </a>
@@ -93,7 +93,7 @@ export default function ManageProjectCardsShown() {
       {ProjectsDetails.length > showTill && (
         <button
           onClick={() => setShowTill(showTill + 4)}
-          className="mt-7 px-4 py-2 bg-black text-white rounded-lg w-100 ml-47 cursor-pointer hover:opacity-80"
+          className="mt-7 px-4 py-2 bg-primary text-primary-foreground rounded-lg w-100 ml-47 cursor-pointer hover:opacity-80"
         >
           Show More
         </button>
