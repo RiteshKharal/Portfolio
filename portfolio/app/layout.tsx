@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import ThemeToggle from './components/ThemeToggle.tsx';
-import FallingFlames from './components/LeafPetals.jsx';
+import FallingFlames from './components/BackgroundAnimation.jsx';
 import { Smooch_Sans } from 'next/font/google';
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
 
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="bg-background text-foreground antialiased">
+      <body className="bg-background text-foreground antialiased ">
         <NextThemesProvider
           attribute="class"
           defaultTheme="system"
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <FallingFlames />
           <header className="flex justify-between items-center px-6 py-4 text-lg font-medium">
-            <div className={` ${smooch.className} font-semibold text-4xl text-primary`}>Ritesh</div>
+            <a className={` ${smooch.className} font-semibold text-4xl text-primary`} href="">Ritesh</a>
             <nav className="flex gap-6 margin-19px  items-center">
               <ThemeToggle ></ThemeToggle>
 

@@ -87,11 +87,11 @@ const StyledWrapper = styled.div`
   }
 
   .icon {
-    color: #fbbf24; /* sun color */
+    color: var(--foreground); /* sun color */
   }
 
   .icon--moon {
-    color: #1e3a8a; /* moon color */
+    color: var(--foreground); /* moon color */
     transition-delay: 20ms;
   }
 

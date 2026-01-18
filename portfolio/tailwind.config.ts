@@ -9,11 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        josefin: ['"Josefin Sans"', 'sans-serif'],
-        righteous: ['"Righteous"', 'cursive'],
-        smooch: ['"Smooch Sans"', 'sans-serif'],
-      },
     },
   },
   plugins: [],

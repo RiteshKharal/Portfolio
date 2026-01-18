@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function FallingFlames({ amount = 60 }) {
+export default function FallingFlames({ amount = 10 }) {
   const [dots, setDots] = useState([]);
 
   // Generate flames
@@ -12,9 +12,11 @@ export default function FallingFlames({ amount = 60 }) {
       arr.push({
         id: i,
         left: Math.random() * 100,
+        top: Math.random() * 100, // Random vertical position
         size: Math.random() * 1.6 + 0.6,
         delay: Math.random() * 6,
         duration: Math.random() * 6 + 6,
+        horizontalDrift: (Math.random() - 0.5) * 20, // Smaller horizontal movement for hovering
       });
     }
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -45,15 +47,29 @@ export default function FallingFlames({ amount = 60 }) {
 
         @keyframes flameFall {
           0% {
-            transform: translateY(-15vh);
-            opacity: 1;
+            transform: translateY(0vh) translateX(0px);
+            opacity: 0.5;
+            filter: blur(1px);
           }
-          10% {
+          25% {
+            transform: translateY(-1vh) translateX(5px);
             opacity: 1;
+            filter: blur(1px);
+          }
+          50% {
+            transform: translateY(0vh) translateX(0px);
+            opacity: 0.8;
+            filter: blur(1px);
+          }
+          75% {
+            transform: translateY(1vh) translateX(-5px);
+            opacity: 1;
+            filter: blur(1px);
           }
           100% {
-            transform: translateY(calc(var(--DocumentHeight) + 15vh));
-            opacity: 0;
+            transform: translateY(0vh) translateX(0px);
+            opacity: 0.5;
+            filter: blur(1px);
           }
         }
 
@@ -61,30 +77,14 @@ export default function FallingFlames({ amount = 60 }) {
           position: absolute;
           border-radius: 50%;
           background: rgba(0, 0, 0, 1);
-          filter: blur(1px);
-          box-shadow: 0 0 10px 3px rgba(0,0,0,0.5);
+          filter: blur(20px);
+          box-shadow: 0 0 10px 3px rgba(0,0,0,0,0.5);
         }
 
         .dark .flame {
           background: rgba(255, 255, 255, 1);
-          box-shadow: 0 0 10px 3px rgba(255,255,255,0.5);
-        }
-
-        .flame::before {
-          content: "";
-          position: absolute;
-          left: 50%;
-          transform: translateX(-100%);
-          bottom: 100%;
-          width: 2px;
-          height: 26px;
-          background: linear-gradient(to top, rgba(0,0,0,0.9));
-          border-radius: 999px;
-          filter: blur(4px);
-        }
-
-        .dark .flame::before {
-          background: linear-gradient(to top, rgba(255,255,255,0.9));
+          box-shadow: 0 0 10px 3px rgba(255,255,255);
+          opacity:1;
         }
       `}</style>
 
@@ -94,10 +94,11 @@ export default function FallingFlames({ amount = 60 }) {
           className="flame"
           style={{
             left: `${d.left}%`,
-            top: "-10vh",
+            top: `${d.top}%`,
             width: `${d.size}px`,
             height: `${d.size}px`,
-            animation: `flameFall ${d.duration}s linear ${d.delay}s infinite`,
+            "--horizontalDrift": `${d.horizontalDrift}px`,
+            animation: `flameFall ${d.duration}s ease-in-out ${d.delay}s infinite`,
           }}
         />
       ))}

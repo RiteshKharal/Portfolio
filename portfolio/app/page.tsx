@@ -3,7 +3,7 @@ import Animatedbtn1 from './components/AnimatedBtn.jsx'
 // import { FaFacebookSquare } from "react-icons/fa";
 // import { FaYoutube } from "react-icons/fa";
 import ManageProjectCardsShown from './components/ProjectsCard.jsx';
-import Image from 'next/image.js';
+import Image from 'next/image';
 import { Josefin_Sans, Righteous, Smooch_Sans } from 'next/font/google';
 
 const josefin = Josefin_Sans({ subsets: ['latin'], weight: ['100','400','700'] });
@@ -19,7 +19,7 @@ export default function Home() {
       
       {/* HERO */}
       <section className="mt-22 text-center max-w-2xl h-140 flex flex-col justify-center items-center mx-auto">
-  <h1 className={` text-xl font-bold mb-3 cursor-pointer md:text-5xl ${josefin.className}`} title='[GOD]' >Ritesh Kharal.</h1>
+  <a className={` text-xl font-bold mb-3 cursor-pointer md:text-5xl ${josefin.className}`} title='[GOD]' href='#about'>Ritesh Kharal.</a>
 
   <Image src={'/BackgroundImage.jpg'} alt='Image' width={500} height={500} className='absolute rounded-full -rotate-12 opacity-10 bg-blend-color select-none pointer-events-none' loading="eager"></Image>   
 
@@ -65,7 +65,7 @@ export default function Home() {
               <SkillTag text="React" />
               <SkillTag text="Next.js" />
               <SkillTag text="TailwindCSS" />
-              <SkillTag text="UI/UX Basics" />
+              <SkillTag text="UI/UX" />
             </div>
           </div>
 

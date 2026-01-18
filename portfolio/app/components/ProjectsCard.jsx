@@ -18,14 +18,14 @@ const ProjectsDetails = [
 
 export function ProjectCard({ title, description, image, tech, live, github }) {
   return (
-    <div className="max-w-sm border border-border bg-card rounded-xl p-5 shadow-sm hover:shadow-md transition grid gap-4 min-[90vw]:max-w-full shadow-shadow">
+    <div className="max-w-sm border border-border bg-card rounded-xl p-5 shadow-sm hover:shadow-md transition grid gap-4 min-[90vw]:max-w-full shadow-shadow ">
       <div className="w-full h-full overflow-hidden rounded-lg mb-4">
         <Image 
           src={image} 
           alt={title}
           width={800} 
           height={800} 
-          className="w-full h-full object-cover" 
+          className="w-full h-full object-cover " 
         />
       </div>
 
