@@ -12,18 +12,18 @@ export default function FallingFlames({ amount = 10 }) {
       arr.push({
         id: i,
         left: Math.random() * 100,
-        top: Math.random() * 100, // Random vertical position
+        top: Math.random() * 100,
         size: Math.random() * 1.6 + 0.6,
         delay: Math.random() * 6,
         duration: Math.random() * 6 + 6,
-        horizontalDrift: (Math.random() - 0.5) * 20, // Smaller horizontal movement for hovering
+        horizontalDrift: (Math.random() - 0.5) * 20,
       });
     }
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setDots(arr);
   }, [amount]);
 
-  // Only run in browser: set --DocumentHeight dynamically
+  // Set document height CSS var
   useEffect(() => {
     const setDocHeight = () => {
       document.documentElement.style.setProperty(
@@ -32,8 +32,8 @@ export default function FallingFlames({ amount = 10 }) {
       );
     };
 
-    setDocHeight(); // initial
-    window.addEventListener("resize", setDocHeight); // update on resize
+    setDocHeight();
+    window.addEventListener("resize", setDocHeight);
 
     return () => window.removeEventListener("resize", setDocHeight);
   }, []);
@@ -73,18 +73,23 @@ export default function FallingFlames({ amount = 10 }) {
           }
         }
 
+        /* Base flame (LIGHT MODE) */
         .flame {
           position: absolute;
           border-radius: 50%;
-          background: rgba(0, 0, 0, 1);
-          filter: blur(20px);
-          box-shadow: 0 0 10px 3px rgba(0,0,0,0,0.5);
+          background: rgba(60, 60, 60, 0.9); /* soft dark gray instead of pure black */
+          filter: blur(18px);
+          box-shadow:
+            0 0 12px 4px rgba(60, 60, 60, 0.25),
+            0 0 24px 10px rgba(255, 180, 80, 0.15); /* subtle warm glow */
         }
 
+        /* DARK MODE OVERRIDE */
         .dark .flame {
-          background: rgba(255, 255, 255, 1);
-          box-shadow: 0 0 10px 3px rgba(255,255,255);
-          opacity:1;
+          background: rgba(255, 255, 255, 0.95);
+          box-shadow:
+            0 0 12px 4px rgba(255, 255, 255, 0.4),
+            0 0 26px 12px rgba(255, 255, 255, 0.2);
         }
       `}</style>
 

@@ -4,8 +4,8 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import ThemeToggle from './components/ThemeToggle.tsx';
 import FallingFlames from './components/BackgroundAnimation.jsx';
 import { Smooch_Sans } from 'next/font/google';
-import { FaLinkedin } from "react-icons/fa";
-import { FaFacebookSquare } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+// import { FaFacebookSquare } from "react-icons/fa";
 // import { FaYoutube } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <FallingFlames />
           <header className="flex justify-between items-center px-6 py-4 text-lg font-medium">
-            <a className={` ${smooch.className} font-semibold text-4xl text-primary`} href="">Ritesh</a>
+            <a className={` ${smooch.className} font-semibold text-4xl text-primary`} href=""></a>
             <nav className="flex gap-6 margin-19px  items-center">
               <ThemeToggle ></ThemeToggle>
 
@@ -72,7 +72,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </a>
 
               <a
-                href=""
+                href="mailto:kharalritesh@gmail.com"
+                target="_blank"
                 className="
                   bg-background p-3 rounded-full
                   hover:bg-[#D14836] hover:text-white
@@ -84,15 +85,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </a>  
 
               <a
-                href=""
+                href="https://github.com/RiteshKharal"
+                target="_blank"
                 className="
                   bg-background p-3 rounded-full
-                  hover:bg-[#1877F2] hover:text-white
+                  hover:bg-[#6ec497] hover:text-white
                   transition-all
-                  hover:drop-shadow-[0_0_21px_#1877F2]
+                  hover:drop-shadow-[0_0_21px_#6ec497]
                 "
               >
-                <FaFacebookSquare />
+                <FaGithub />
               </a>
 
               

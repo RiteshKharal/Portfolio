@@ -1,14 +1,16 @@
-import Animatedbtn1 from './components/AnimatedBtn.jsx'
+// import Animatedbtn1 from './components/AnimatedBtn.jsx'
 // import { FaLinkedin } from "react-icons/fa";
 // import { FaFacebookSquare } from "react-icons/fa";
 // import { FaYoutube } from "react-icons/fa";
 import ManageProjectCardsShown from './components/ProjectsCard.jsx';
 import Image from 'next/image';
 import { Josefin_Sans, Righteous, Smooch_Sans } from 'next/font/google';
+import SliderToggle from './components/Slider.jsx';
+import ScrollDownIndicator from './components/ScrollDownIndicator.jsx';
 
 const josefin = Josefin_Sans({ subsets: ['latin'], weight: ['100','400','700'] });
-const righteous = Righteous({ subsets: ['latin'], weight: ['400'] });
-const smooch = Smooch_Sans({ subsets: ['latin'], weight: ['100','900'] });
+// const righteous = Righteous({ subsets: ['latin'], weight: ['400'] });
+// const smooch = Smooch_Sans({ subsets: ['latin'], weight: ['100','900'] });
 
 export default function Home() {
 
@@ -21,39 +23,61 @@ export default function Home() {
       <section className="mt-22 text-center max-w-2xl h-140 flex flex-col justify-center items-center mx-auto">
   <a className={` text-xl font-bold mb-3 cursor-pointer md:text-5xl ${josefin.className}`} title='[GOD]' href='#about'>Ritesh Kharal.</a>
 
-  <Image src={'/BackgroundImage.jpg'} alt='Image' width={500} height={500} className='absolute rounded-full -rotate-12 opacity-10 bg-blend-color select-none pointer-events-none' loading="eager"></Image>   
+  {/* <Image src={'/BackgroundImage.jpg'} alt='Image' width={500} height={500} className='absolute rounded-full -rotate-12 opacity-10 bg-blend-color select-none pointer-events-none' loading="eager"></Image>    */}
 
   <p className="text-lg opacity-80 mb-8 w-[50%] md:w-full">
     📍Lumbini, Nepal
   </p>
 
-  <div className="relative top-45 flex gap-20 justify-center text-2xl flex-col md:flex-row">
-
-        <Animatedbtn1 btntext='My Skills' sendto={'#skills'}/>
-        <Animatedbtn1 btntext='My Projects' sendto={'#projects'}/>
-        <Animatedbtn1 btntext='About Me' sendto={'#about'}/>
-
-  </div>
-
-        {/* <p className='text-2.5 translate-y-50 block opacity-0 font-mono cursor-pointer md:opacity-80' title='Barely remembered the theme But Liked the blurry pic in my head'>Inspired From a video online</p> */}
-
-
-</section>
-
-
-      {/* ABOUT */}
-      <section id="about" className="mt-32 max-w-3xl w-full">
-        <h2 className="text-3xl font-bold mb-4">About</h2>
-        <p className="opacity-80 leading-relaxed">
-          I&apos;m Ritesh, a curiosity-driven developer exploring web and mobile technologies.
+  <p className="opacity-80 leading-relaxed top-5 text-[1.2rem]">
+          I&apos;m Ritesh, a developer currently exploring web and mobile technologies.
           I enjoy building clean UI, learning new frameworks, and turning ideas into working projects.
           I&apos;m currently in the grind to become a full-stack developer.
         </p>
-      </section>
 
-      {/* SKILLS */}
-      <section id="skills" className="mt-32 max-w-3xl w-full">
-        <h2 className="text-3xl font-bold mb-6">Skills</h2>
+  <div className="relative top-45 flex gap-20 justify-center text-2xl flex-col md:flex-row">
+
+        {/* <Animatedbtn1 btntext='My Skills' sendto={'#skills'}/> */}
+        {/* <Animatedbtn1 btntext='My Projects' sendto={'#projects'}/> */}
+        {/* <Animatedbtn1 btntext='About Me' sendto={'#about'}/> */}
+
+  </div>
+
+  </section>
+{/*    
+
+      
+      <section id="about" className="mt-32 max-w-3xl w-full">
+        <h2 className="text-3xl font-bold mb-4">About</h2>
+        
+      </section>  */}
+      
+
+      <section
+  id="skills"
+  className="mt-32 w-full max-w-3xl rounded-2xl bg-background/60 backdrop-blur-md"
+>
+
+
+  {/* <div className="mb-10 flex rounded-xl bg-muted p-1 text-center just-space-between">
+    <button className="flex-1 rounded-lg bg-background py-2 text-xl font-semibold tracking-tight shadow-sm transition">
+      Skills
+    </button>
+
+    <button className="flex-1 rounded-lg py-2 text-xl font-semibold text-muted-foreground transition hover:text-foreground">
+      Projects
+    </button>
+  </div> */}
+
+  <SliderToggle></SliderToggle>
+
+
+
+
+
+
+
+        {/* <h2 className="text-3xl font-bold mb-6">Skills</h2>
 
         <div className="space-y-10">
           <div>
@@ -75,8 +99,6 @@ export default function Home() {
               Experience creating APIs, authentication systems, and server-side logic.
             </p>
             <div className="flex flex-wrap gap-3 mt-3">
-              {/* <SkillTag text="Django" /> */}
-              {/* <SkillTag text="REST APIs" /> */}
               <SkillTag text="Node.js" />
             </div>
           </div>
@@ -89,46 +111,21 @@ export default function Home() {
               <SkillTag text="Figma" />
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* PROJECTS */}
- <section id="projects" className="mt-32 max-w-3xl w-full">
+ {/* <section id="projects" className="mt-32 max-w-3xl w-full">
   <h2 className="text-3xl font-bold mb-10">Projects</h2>
 
-  {/* Your projects array */}
-  
 
   <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
     
       <ManageProjectCardsShown></ManageProjectCardsShown>
 
   </div>
-</section>
-
-
-      {/* CONTACT */}
-      <section id="contact" className="mt-32 max-w-3xl w-full mb-20">
-        {/* <h2 className="text-3xl font-bold mb-6">Contact</h2> */}
-
-        {/* <form className="flex flex-col gap-4 max-w-md">
-          <input className="border p-3 rounded-lg border-primary" placeholder="First name" />
-          <input className="border p-3 rounded-lg border-primary" placeholder="Last name" />
-          <input className="border p-3 rounded-lg border-primary" placeholder="Email" />
-          <textarea className="border p-3 rounded-lg border-primary" rows={4} placeholder="Message"></textarea>
-          <a className="bg-primary text-background py-3 rounded-lg hover:opacity-80 transition text-center" href='mailto:kharalritesh@gmail.com'>
-            Submit
-          </a>
-        </form> */}
-
-        {/* <section className='flex gap-5 font-bold text-xl -translate-y-10 justify-center md:justify-start md:translate-x-140 m-15 md:m-0 w-fit'>
-          <a href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/" className='hover:bg-blue-200 bg-background p-3 rounded-full' target='_blank'><FaLinkedin/></a>
-          <a href="" className=' hover:bg-blue-300 bg-background p-3 rounded-full'><FaFacebookSquare/></a>
-          <a href="" className=' hover:bg-red-900 bg-background p-3 rounded-full '><FaYoutube/></a>
-
-        </section> */}
-      </section>
-
+</section> */}
+      <ScrollDownIndicator />
     </div>
 
   );
