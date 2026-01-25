@@ -1,62 +1,105 @@
+'use client';
+import { useState } from 'react';
 // import Animatedbtn1 from './components/AnimatedBtn.jsx'
-// import { FaLinkedin } from "react-icons/fa";
-// import { FaFacebookSquare } from "react-icons/fa";
-// import { FaYoutube } from "react-icons/fa";
-import ManageProjectCardsShown from './components/ProjectsCard.jsx';
+import {ProjectCard} from './components/ProjectsCard.jsx';
 import Image from 'next/image';
 import { Josefin_Sans, Righteous, Smooch_Sans } from 'next/font/google';
 import SliderToggle from './components/Slider.jsx';
 import ScrollDownIndicator from './components/ScrollDownIndicator.jsx';
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { ProjectModal } from './components/ProjectsCard.jsx';
+// import { ProjectsModal } from './components/ProjectsCard.jsx';
+// import { FaFacebookSquare } from "react-icons/fa";
+// import { FaYoutube } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
 
 const josefin = Josefin_Sans({ subsets: ['latin'], weight: ['100','400','700'] });
 // const righteous = Righteous({ subsets: ['latin'], weight: ['400'] });
 // const smooch = Smooch_Sans({ subsets: ['latin'], weight: ['100','900'] });
 
+
 export default function Home() {
+  
+  const [openProject, setOpenProject] = useState(null);
 
 
   return (
       
     <div className="flex flex-col items-center px-6 scroll-smooth">
+
+      {openProject && (
+        <ProjectModal
+          project={openProject}
+          onClose={() => setOpenProject(null)}
+        />
+      )}
       
       {/* HERO */}
-      <section className="mt-22 text-center max-w-2xl h-140 flex flex-col justify-center items-center mx-auto">
-  <a className={` text-xl font-bold mb-3 cursor-pointer md:text-5xl ${josefin.className}`} title='[GOD]' href='#about'>Ritesh Kharal.</a>
+      <section className="mt-24 flex justify-center px-4 p-1 rounded-3xl">
+  <div className="w-full max-w-3xl rounded-2xl border border-border bg-background/40 backdrop-blur-xl p-6 shadow-md flex flex-col gap-4">
 
-  {/* <Image src={'/BackgroundImage.jpg'} alt='Image' width={500} height={500} className='absolute rounded-full -rotate-12 opacity-10 bg-blend-color select-none pointer-events-none' loading="eager"></Image>    */}
+    <div className="flex items-start justify-between gap-4">
+      <div>
+        <h1 className={`text-3xl md:text-4xl font-bold ${josefin.className}`}>
+          Ritesh Kharal
+        </h1>
 
-  <p className="text-lg opacity-80 mb-8 w-[50%] md:w-full">
-    📍Lumbini, Nepal
-  </p>
+        <div className="mt-2 flex items-center gap-2 text-muted-foreground">
+          <span className="text-lg">📍</span>
+          <span className="text-lg">Lumbini, Nepal</span>
+        </div>
+      </div>
 
-  <p className="opacity-80 leading-relaxed top-5 text-[1.2rem]">
-          I&apos;m Ritesh, a developer currently exploring web and mobile technologies.
-          I enjoy building clean UI, learning new frameworks, and turning ideas into working projects.
-          I&apos;m currently in the grind to become a full-stack developer.
-        </p>
+      <div className="flex gap-3">
+        <a
+          href="mailto:kharalritesh@email.com"
+          className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition"
+        >
+          <IoIosMail />
+        </a>
+        <a
+          href="https://github.com/RiteshKharal"
+          target="_blank"
+          className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition"
+        >
+          <FaGithub />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/"
+          target="_blank"
+          className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition"
+        >
+          <FaLinkedin />
+        </a>
+      </div>
+    </div>
 
-  <div className="relative top-45 flex gap-20 justify-center text-2xl flex-col md:flex-row">
-
-        {/* <Animatedbtn1 btntext='My Skills' sendto={'#skills'}/> */}
-        {/* <Animatedbtn1 btntext='My Projects' sendto={'#projects'}/> */}
-        {/* <Animatedbtn1 btntext='About Me' sendto={'#about'}/> */}
-
+    {/* Description */}
+    <p className="text-base md:text-lg leading-relaxed text-foreground/90">
+      I am a 15-year-old full-stack web developer, Currently learning and improving every day. 
+    </p>
   </div>
+</section>
 
-  </section>
+
+
+
 {/*    
 
       
+
+
+
       <section id="about" className="mt-32 max-w-3xl w-full">
         <h2 className="text-3xl font-bold mb-4">About</h2>
         
       </section>  */}
       
 
-      <section
+      {/* <section
   id="skills"
-  className="mt-32 w-full max-w-3xl rounded-2xl bg-background/60 backdrop-blur-md"
->
+  className="mt-25 w-full max-w-3xl rounded-2xl bg-background/60 backdrop-blur-md"
+> */}
 
 
   {/* <div className="mb-10 flex rounded-xl bg-muted p-1 text-center just-space-between">
@@ -112,7 +155,7 @@ export default function Home() {
             </div>
           </div>
         </div> */}
-      </section>
+      {/* </section> */}
 
       {/* PROJECTS */}
  {/* <section id="projects" className="mt-32 max-w-3xl w-full">
@@ -128,14 +171,6 @@ export default function Home() {
       <ScrollDownIndicator />
     </div>
 
-  );
-}
-
-function SkillTag({ text }: { text: string }) {
-  return (
-    <span className="px-3 py-1 text-sm bg-background rounded-xl shadow hover:opacity-60 cursor-pointer ">
-      {text}
-    </span>
   );
 }
 

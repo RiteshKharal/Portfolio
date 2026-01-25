@@ -30,7 +30,7 @@ export default function ScrollDownIndicator() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-5">
       <button
         onClick={scrollToBottom}
         className="flex flex-col items-center text-foreground/60 hover:text-foreground transition-colors duration-300 animate-bounce"
