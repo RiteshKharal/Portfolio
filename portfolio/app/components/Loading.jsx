@@ -7,6 +7,7 @@ const MIN_TIME = 800; // loader stays at least 0.8s (slower than before)
 
 const Loader = () => {
   const [visible, setVisible] = useState(true);
+  // eslint-disable-next-line react-hooks/purity
   const startTime = React.useRef(Date.now());
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const Overlay = styled.div`
   opacity: 1;
   pointer-events: all;
 
-  transition: opacity 0.9s ease;   /* slower fade */
+  transition: opacity 0.9s ease;  
 
   &.hide {
     opacity: 0;
@@ -69,7 +70,6 @@ const Overlay = styled.div`
   }
 `;
 
-/* ---------- SPINNER (slower animation) ---------- */
 
 const StyledWrapper = styled.div`
   .dot-spinner {
@@ -78,7 +78,7 @@ const StyledWrapper = styled.div`
     align-items: center;
     justify-content: flex-start;
 
-    --uib-speed: 2s;   /* 🔥 MUCH slower spin */
+    --uib-speed: 2s;  
 
     height: 3rem;
     width: 3rem;
@@ -89,7 +89,7 @@ const StyledWrapper = styled.div`
     height: 20%;
     width: 20%;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: var(--color-primary);
     filter: drop-shadow(0 0 12px rgb(95, 150, 202));
     transform: scale(0);
     opacity: 0.5;
