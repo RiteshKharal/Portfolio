@@ -56,8 +56,8 @@ const Overlay = styled.div`
   justify-content: center;
 
   background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 
   opacity: 1;
   pointer-events: all;
