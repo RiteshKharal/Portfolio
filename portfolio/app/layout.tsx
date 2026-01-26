@@ -8,6 +8,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 // import { FaFacebookSquare } from "react-icons/fa";
 // import { FaYoutube } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
+import Loader from "./components/Loading.jsx";
 
 const smooch = Smooch_Sans({
   subsets:['latin'],
@@ -47,6 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </header>
 
           <main>
+            <Loader></Loader>
+            
             {children}
             
           <section

@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 // import Animatedbtn1 from './components/AnimatedBtn.jsx'
-import {ProjectCard} from './components/ProjectsCard.jsx';
+// import {ProjectCard} from './components/ProjectsCard.jsx';
 import Image from 'next/image';
 import { Josefin_Sans, Righteous, Smooch_Sans } from 'next/font/google';
 import SliderToggle from './components/Slider.jsx';
@@ -26,6 +26,8 @@ export default function Home() {
   return (
       
     <div className="flex flex-col items-center px-6 scroll-smooth">
+
+    
 
       {openProject && (
         <ProjectModal
