@@ -17,6 +17,7 @@ export default function SliderToggle() {
     {
       title: "Portfolio Website",
       description: "A clean minimal portfolio with modern UI.",
+      LongDesc:"",
       image: "/Portfolioimg.png",
       tech: ["React", "Tailwind", "Next.js"],
       live: "https://riteshkharal.vercel.app/",

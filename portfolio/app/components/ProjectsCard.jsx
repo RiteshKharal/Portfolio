@@ -189,56 +189,53 @@ export function ProjectModal({ project, onClose }) {
             )}
           </div>
 
-          {/* Buttons */}
           <div className="flex gap-8">
 
-            {/* Live Demo */}
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                flex items-center gap-2
-                px-8 py-3
-                rounded-xl
+                        {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    flex items-center gap-2
+                    px-8 py-3
+                    rounded-xl
+                    bg-black text-white
+                    dark:bg-white dark:text-black
+                    font-semibold
+                    shadow-lg
+                    transition-all
+                    hover:-translate-y-1 hover:shadow-xl hover:opacity-90
+                    active:scale-95
+                  "
+                >
+                  <HiOutlineExternalLink />
+                  Live Demo
+                </a>
+              )}
 
-                bg-black text-white
-                dark:bg-white dark:text-black
-
-                font-semibold
-                shadow-lg
-                transition-all
-                hover:-translate-y-1 hover:shadow-xl hover:opacity-90
-                active:scale-95
-              "
-            >
-              <HiOutlineExternalLink />
-              Live Demo
-            </a>
-
-            {/* GitHub */}
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                flex items-center gap-2
-                px-8 py-3
-                rounded-xl
-
-                bg-zinc-200 dark:bg-zinc-800
-                text-gray-900 dark:text-white
-
-                font-medium
-                shadow-md
-                transition-all
-                hover:-translate-y-1 hover:shadow-lg hover:opacity-90
-                active:scale-95
-              "
-            >
-              <FaGithub />
-              GitHub
-            </a>
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    flex items-center gap-2
+                    px-8 py-3
+                    rounded-xl
+                    bg-zinc-200 dark:bg-zinc-800
+                    text-gray-900 dark:text-white
+                    font-medium
+                    shadow-md
+                    transition-all
+                    hover:-translate-y-1 hover:shadow-lg hover:opacity-90
+                    active:scale-95
+                  "
+                >
+                  <FaGithub />
+                  GitHub
+                </a>
+              )}
 
           </div>
 
@@ -261,6 +258,5 @@ ProjectModal.propTypes = {
   onClose: PropTypes.func,
 };
 
-// ---------------- Manager ----------------
 
 
