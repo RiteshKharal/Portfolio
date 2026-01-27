@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const MIN_TIME = 800; // loader stays at least 0.8s (slower than before)
+ const MIN_TIME = 500; // In ms
 
 const Loader = () => {
   const [visible, setVisible] = useState(true);
@@ -56,7 +56,7 @@ const Overlay = styled.div`
   justify-content: center;
 
   background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(30px);
 
   opacity: 1;

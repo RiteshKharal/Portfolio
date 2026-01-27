@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
 
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="bg-background text-foreground antialiased ">
+      <body className="bg-background text-foreground antialiased overflow-x-hidden">
         <NextThemesProvider
           attribute="class"
           defaultTheme="system"

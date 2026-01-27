@@ -13,6 +13,14 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
