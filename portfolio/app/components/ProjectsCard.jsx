@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import { Josefin_Sans } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
-import { FaArrowLeft, FaGithub } from "react-icons/fa";
+import { FaArrowLeft, FaGithub,FaArrowRight } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 // Global Josefin Sans font
 export const josefin = Josefin_Sans({
@@ -54,9 +54,22 @@ export function ProjectCard({ title, description, image, tech, onOpen }) {
               </span>
             ))}
           </div>
-          <span className="inline-block mt-2 text-primary font-semibold transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-            ➡️ Learn More!
-          </span>
+          <span
+  className="
+    mt-2
+    text-foreground font-semibold
+
+    flex items-center gap-2
+
+    transform translate-y-4 opacity-0
+    group-hover:translate-y-0 group-hover:opacity-100
+
+    transition-all duration-300 ease-out
+  "
+>
+  View
+  <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+</span>
         </div>
       </div>
     </button>
@@ -239,7 +252,6 @@ export function ProjectModal({ project, onClose }) {
 
           </div>
 
-          {/* Description */}
           <div className="max-w-4xl text-center space-y-6">
             <p className="text-foreground leading-relaxed">
               {project.description}
@@ -252,11 +264,7 @@ export function ProjectModal({ project, onClose }) {
 }
 
 
-
 ProjectModal.propTypes = {
   project: PropTypes.object,
   onClose: PropTypes.func,
 };
-
-
-
