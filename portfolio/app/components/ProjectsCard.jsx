@@ -134,11 +134,11 @@ export function ProjectModal({ project, onClose }) {
         onClick={(e) => e.stopPropagation()}
         className={`
           w-[80vw] max-w-5xl
-          h-[90vh]
+          max-h-[90vh]
           rounded-3xl
           shadow-2xl
           flex flex-col
-          overflow-hidden
+          overflow-scroll
 
           bg-card/90
           backdrop-blur-xl
@@ -252,10 +252,8 @@ export function ProjectModal({ project, onClose }) {
 
           </div>
 
-          <div className="max-w-4xl text-center space-y-6">
-            <p className="text-foreground leading-relaxed">
-              {project.description}
-            </p>
+          <div className="text-center space-y-6 text-foreground leading-relaxed w-[70%] text-lg">
+              {project.LongDesc}
           </div>
         </div>
       </div>
