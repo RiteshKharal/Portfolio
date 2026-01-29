@@ -192,6 +192,7 @@ export function ProjectModal({ project, onClose }) {
                 src={project.image}
                 alt={project.title}
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 priority
                 className="object-cover transition-transform duration-700 hover:scale-110"
               />
