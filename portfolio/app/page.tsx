@@ -17,6 +17,7 @@ const josefin = Josefin_Sans({ subsets: ['latin'], weight: ['100','400','700'] }
 // const righteous = Righteous({ subsets: ['latin'], weight: ['400'] });
 // const smooch = Smooch_Sans({ subsets: ['latin'], weight: ['100','900'] });
 
+// TO Make: ADD a slight gradient follow the user's cursor for a cool effect
 
 export default function Home() {
   

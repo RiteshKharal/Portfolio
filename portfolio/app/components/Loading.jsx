@@ -33,13 +33,13 @@ const Loader = () => {
 
   return (
     <Overlay className={!visible ? "hide" : ""}>
-      <StyledWrapper>
+      {/* <StyledWrapper>
         <div className="dot-spinner">
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="dot-spinner__dot" />
           ))}
         </div>
-      </StyledWrapper>
+      </StyledWrapper> */}
     </Overlay>
   );
 };
@@ -57,7 +57,7 @@ const Overlay = styled.div`
 
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(18px);
 
   opacity: 1;
   pointer-events: all;
