@@ -19,12 +19,12 @@
 
 html {
   scrollbar-width: none;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 :root {
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
-  /* --accent: 0 0% 54.1%; */
   --accent: 0 0% 91%;
 
 
@@ -41,7 +41,6 @@ html {
 .dark {
   --background: 240 10% 3%;
   --foreground: 0 0% 98%;
-  /* --accent: 240 10% 24.4%; */
   --accent: 0 0% 6.7%;
 
 
