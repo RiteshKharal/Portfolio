@@ -5,6 +5,14 @@ import { useState } from "react";
 import {ProjectCard} from "./ProjectsCard";
 import {ProjectModal} from "./ProjectsCard";
 const smooch = Smooch_Sans({ subsets: ['latin'], weight: ['100','900'] });
+import {
+  FaReact,
+  FaGitAlt,
+  FaFigma,
+  FaNodeJs
+} from "react-icons/fa";
+import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
 
 
 export default function SliderToggle() {
@@ -39,43 +47,57 @@ export default function SliderToggle() {
   ];
 
   const skillsContent = (
-    <div className="rounded-xl bg-background/10 backdrop-blur-lg border border-white/20 shadow-lg p-6">
-      {/* <h2 className="text-3xl font-bold mb-6">Skills</h2> */}
+    <div className="rounded-xl bg-background/1 border border-white/10 shadow-lg p-6 grid grid-cols-2 gap-4">
+  <SkillTag
+    text="React"
+    subtext="UI library"
+    icon={<FaReact />}
+    color="#61DAFB"
+  />
+  <SkillTag
+    text="Next.js"
+    subtext="React framework"
+    icon={<SiNextdotjs />}
+    color="#ffffff"
+  />
+  <SkillTag
+    text="TailwindCSS"
+    subtext="CSS framework"
+    icon={<SiTailwindcss />}
+    color="#38BDF8"
+  />
+  <SkillTag
+    text="UI / UX"
+    subtext="Design principles"
+    icon={<FaFigma />}
+    color="#A259FF"
+  />
+  <SkillTag
+    text="Git"
+    subtext="Version control"
+    icon={<FaGitAlt />}
+    color="#F1502F"
+  />
+  <SkillTag
+    text="VS Code"
+    subtext="Code editor"
+    icon={<VscCode />}
+    color="#007ACC"
+  />
+  <SkillTag
+    text="Figma"
+    subtext="Design tool"
+    icon={<FaFigma />}
+    color="#A259FF"
+  />
+  <SkillTag
+    text="Node.js"
+    subtext="Backend runtime"
+    icon={<FaNodeJs />}
+    color="#68A063"
+  />
+</div>
 
-      <div className="space-y-10">
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Front-End</h3>
-          <p className="opacity-80">
-            Skilled in building responsive, clean, and dynamic user interfaces using modern frameworks.
-          </p>
-          <div className="flex flex-wrap gap-3 mt-3">
-            <SkillTag text="React" />
-            <SkillTag text="Next.js" />
-            <SkillTag text="TailwindCSS" />
-            <SkillTag text="UI/UX" />
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Back-End</h3>
-          <p className="opacity-80">
-            Experience creating APIs, authentication systems, and server-side logic.
-          </p>
-          <div className="flex flex-wrap gap-3 mt-3">
-            <SkillTag text="Node.js" />
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Tools</h3>
-          <div className="flex flex-wrap gap-3 mt-1">
-            <SkillTag text="Git" />
-            <SkillTag text="VS Code" />
-            <SkillTag text="Figma" />
-          </div>
-        </div>
-      </div>
-    </div>
   );
 
   const ProjectsContent = (
@@ -121,7 +143,7 @@ export default function SliderToggle() {
 
 <section
   id="SliderSection"
-  className="mt-25 w-full max-w-3xl rounded-2xl bg-background/60 backdrop-blur-md"
+  className="mt-25 w-full max-w-3xl rounded-2xl bg-background/60"
 >
 
     <div className="w-full max-w-3xl space-y-6 h-10 border border-border/80 rounded-2xl bg-white/10 dark:bg-black/10 backdrop-blur-lg ">
@@ -158,10 +180,47 @@ export default function SliderToggle() {
 }
 
 
-function SkillTag({ text }) {
+function SkillTag({ icon, text, subtext, color }) {
   return (
-    <span className="px-3 py-1 text-sm bg-background rounded-xl shadow hover:opacity-60 cursor-pointer ">
-      {text}
-    </span>
+    <div
+      style={{ "--hover-color": color }}
+      className="
+        group
+        flex items-center gap-4
+        rounded-xl
+        bg-foreground/2
+        px-5 py-4
+        backdrop-blur
+        transition
+        border border-transparent
+        hover:border-[color-mix(in_srgb,var(--hover-color)_10%,transparent)]
+        /* hover:shadow-[0_0_0_1px_color-mix(in_srgb,var(--hover-color)_10%,transparent),0_8px_15px_color-mix(in_srgb,var(--hover-color)_20%,transparent)] */
+        hover:bg-foreground/4
+        text-foreground
+        hover:scale-[1.02]
+      "
+    >
+      {/* Icon */}
+      <div
+        className="
+          flex h-11 w-11 items-center justify-center
+          rounded-lg
+          bg-foreground/7
+          text-xl
+          transition
+          group-hover:text-[color-mix(in_srgb,var(--hover-color)_60%,currentColor)]
+          group-hover:bg-foreground/6
+          text-[color-mix(in_srgb,var(--hover-color)_60%,currentColor)]
+        "
+      >
+        {icon}
+      </div>
+
+      {/* Text */}
+      <div className="leading-tight">
+        <p className="text-sm font-semibold">{text}</p>
+        <p className="text-xs opacity-70">{subtext}</p>
+      </div>
+    </div>
   );
 }

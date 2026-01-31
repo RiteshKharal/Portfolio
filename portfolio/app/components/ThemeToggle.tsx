@@ -64,12 +64,13 @@ const StyledWrapper = styled.div`
     display: grid;
     place-items: center;
     cursor: pointer;
-    box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
     line-height: 1;
   }
 
   .toggle:hover {
-    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1); /* optional subtle hover glow */
+    transform : scale(1.05);
+    transition: 0.3s; /* optional subtle hover glow */
   }
 
   .input {
