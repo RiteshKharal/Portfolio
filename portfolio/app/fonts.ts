@@ -10,9 +10,9 @@ const AllFonts = [
 
 
 export const lilitaOne = Lilita_One({
-  subsets: ['latin'], // adjust if needed
-  weight: ['400'],      // default weight
-  variable: '--font-lilita', // optional, if you want CSS variable
+  subsets: ['latin'], 
+  weight: ['400'],      
+  variable: '--font-lilita', 
 });
 
 

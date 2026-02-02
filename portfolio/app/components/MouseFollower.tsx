@@ -1,4 +1,6 @@
 'use client';
+// Later use for mouse position based gradient background
+
 
 import { useState } from 'react';
 
