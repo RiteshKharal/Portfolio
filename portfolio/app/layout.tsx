@@ -39,9 +39,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <FallingFlames />
           <MouseFollower></MouseFollower>
+
+
           <header className="flex justify-between items-center px-6 py-4 text-lg font-medium">
             <a className={` ${smooch.className} font-semibold text-4xl text-primary`} href=""></a>
-            <nav className="flex gap-6 margin-19px  items-center">
+            <nav className="flex gap-6 items-center">
               <ThemeToggle ></ThemeToggle>
 
             </nav>

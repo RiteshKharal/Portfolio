@@ -1,5 +1,4 @@
-"use client";
-import Game from "./funcomponents/Game";
+import Game from "./Game";
 
 export default function Page() {
   return (
