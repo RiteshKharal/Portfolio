@@ -80,6 +80,59 @@ export default function Home() {
 
 
       <ScrollDownIndicator />
+
+
+      <section
+              className="
+                fixed bottom-5 right-5
+                flex flex-col gap-2
+                font-bold text-30
+                z-50 hover:text-xl
+              "
+            >
+              <a
+                href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/"
+                target="_blank"
+                className="
+                bg-background
+                  shadow-2xl p-3 rounded-full
+                  hover:bg-[#0A66C2] hover:text-white
+                  transition-all
+                   hover:drop-shadow-[0_0_21px_#0A66C2]
+                "
+              >
+                <FaLinkedin />
+              </a>
+
+              <a
+                href="mailto:kharalritesh@gmail.com"
+                target="_blank"
+                className="
+                  bg-background p-3 rounded-full
+                  hover:bg-[#D14836] hover:text-white
+                  hover:drop-shadow-[0_0_21px_red]
+                  transition-all
+                "
+              >
+                <IoIosMail />
+              </a>  
+
+              <a
+                href="https://github.com/RiteshKharal"
+                target="_blank"
+                className="
+                  bg-background p-3 rounded-full
+                  hover:bg-[#6ec497] hover:text-white
+                  transition-all
+                  hover:drop-shadow-[0_0_21px_#6ec497]
+                "
+              >
+                <FaGithub />
+              </a>
+
+              
+            </section>
+            
     </div>
 
   );

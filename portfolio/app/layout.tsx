@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             
             {children}
             
-          <section
+          {/* <section
               className="
                 fixed bottom-5 right-5
                 flex flex-col gap-2
@@ -104,19 +104,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </a>
 
               
-            </section>
+            </section> */}
 
 
             </main>
 
-          <footer className="mt-20 py-10 text-center text-sm opacity-70 justify-center">
+          {/* <footer className="mt-20 py-10 text-center text-sm opacity-70 justify-center">
 
             
 
-            © {new Date().getFullYear()} Ritesh Kharal. All rights reserved.
+             {new Date().getFullYear()} © Ritesh Kharal.
 
             
-          </footer>
+          </footer> */}
         </NextThemesProvider>
       </body>
     </html>
