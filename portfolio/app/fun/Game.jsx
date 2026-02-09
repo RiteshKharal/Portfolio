@@ -56,7 +56,7 @@ export default function Game() {
   const lives = useRef(3);
   const gameOver = useRef(false);
 
-  const [cardShown, setCardShown] = useState('info'); // CHANGE TS TO NONE BTW
+  const [cardShown, setCardShown] = useState(); // CHANGE TS TO NONE BTW
 
   // eslint-disable-next-line react-hooks/unsupported-syntax
   class Block {
@@ -298,7 +298,6 @@ export default function Game() {
       ctx.fill();
 
       if (collision(pacman.current, food)) {
-        // AboutFood.current.delete(food);
         resetPositions();
         setCardShown('about');
         score.current += 50;
@@ -338,7 +337,6 @@ export default function Game() {
       ctx.fill();
 
       if (collision(pacman.current, food)) {
-        // AboutFood.current.delete(food);
         resetPositions();
         setCardShown('project');
         score.current += 50;
