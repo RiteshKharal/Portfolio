@@ -216,7 +216,7 @@ function CloseButton({ onClose }) {
 
 function ProjectCard({ pr}) {
   return (
-    <div className="w-full h-64 bg-background/10 backdrop-blur-lg rounded-xl p-4">
+    <div className="w-full h-64   rounded-xl p-4">
       Project
     </div>
   )
@@ -243,32 +243,45 @@ function QuickAccessCard() {
   const content = () => {
     if (!activeCard) {
       return (
-        <div className="flex flex-col gap-4">
-          {buttons.map((btn, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveCard(btn.component)}
-              className="w-full py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 cursor-pointer"
-            >
-              {btn.label}
-            </button>
-          ))}
+        <div className="flex items-center flex-col gap-4 w-full">
+          <h2 className="text-xl font-semibold mb-5 ">Quick Access</h2>
+
+          <div className="grid grid-cols-2 w-full gap-10">
+            {buttons.map((btn, i) => {
+              let alignment = i % 2 === 0 ? "justify-self-start" : "justify-self-end";
+              if (i === buttons.length - 1 && buttons.length % 2 !== 0) {
+                alignment = "justify-self-center col-span-2";
+              }
+
+              return (
+                <button
+                  key={i}
+                  onClick={() => setActiveCard(btn.component)}
+                  className={`py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 cursor-pointer ${alignment} border border-border p-5`}
+                >
+                  {btn.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
       );
     }
 
     return (
-      <div className="">
+      <div className="relative flex flex-col justify-between min-h-[300px]">
+        {/* Back button top-left */}
         <button
           onClick={() => setActiveCard(null)}
-          className="absolute top-0 left-0  text-4xl font-semibold 
+          className="absolute top-0 left-0 text-4xl font-semibold 
                      transition-all duration-200 
-                     hover:opacity-70 hover:-translate-x-1 active:scale-95 cursor-pointer" 
+                     hover:opacity-70 hover:-translate-x-1 active:scale-95 cursor-pointer"
         >
-           <IoIosArrowRoundBack />
+          <IoIosArrowRoundBack />
         </button>
 
-        <div className="mt-6">
+        {/* Centered active card */}
+        <div className="flex flex-1 items-center justify-center mt-8">
           {activeCard}
         </div>
       </div>
@@ -277,17 +290,12 @@ function QuickAccessCard() {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="p-6 rounded-xl  relative">
+      <div className="p-6 rounded-xl relative w-[400px]">
         {content()}
       </div>
     </div>
   );
 }
-
-
-
-
-
 
 
 
