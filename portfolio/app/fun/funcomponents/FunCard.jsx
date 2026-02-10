@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 export default function FunProjectCard({ item, onClose }) {
   const [mounted, setMounted] = useState(false);
@@ -46,7 +47,6 @@ export default function FunProjectCard({ item, onClose }) {
         fixed inset-0 z-50
         flex items-center justify-center
 
-        bg-[#0b0f1a]/80
         backdrop-blur-sm
 
         transition-all duration-300 ease-out
@@ -57,14 +57,11 @@ export default function FunProjectCard({ item, onClose }) {
         onClick={(e) => e.stopPropagation()}
         className={`
           w-[80vw] max-w-5xl
-          h-[95vh] mt-7
-          max-h-[90vh]
           overflow-auto
           rounded-3xl
           flex flex-col
-
+          bg-transparent
           backdrop-blur-xl
-
           transform transition-all duration-300 ease-out
           
           ${
@@ -87,7 +84,7 @@ export default function FunProjectCard({ item, onClose }) {
 
         </div>
 
-        <div className=" text-xl bg-neutral-800 text-yellow-400 mt-5 p-6 rounded-lg font-mono relative mx-8">
+        <div className=" text-xl bg-background/50 text-yellow-400 mt-5 p-6 rounded-lg font-mono relative mx-8">
         {
           GetResult()
         }
@@ -95,8 +92,8 @@ export default function FunProjectCard({ item, onClose }) {
         </div>
 
 
-            <div className="px-8 py-4 text-center text-lg rounded-lg mt-10 transition-all duration-300 cursor-pointer transfor">
-          <button className="inline-block px-4 py-2 border border-red-300 text-gray-400 font-mono tracking-wide rounded-md transition-all duration-300 hover:text-red-400 hover:border-red-400 hover:scale-110 cursor-pointer" onClick={onClose}>
+            <div className="px-8 py-4 text-center text-lg rounded-lg mt-10 transition-all duration-300">
+          <button className="inline-block px-4 py-2 border text-gray-800 border-red-500 dark:border-red-300 dark:text-gray-400 font-mono tracking-wide rounded-md transition-all duration-300 hover:text-red-400 hover:border-red-400 hover:scale-110 cursor-pointer" onClick={onClose}>
           Close
         </button>
       </div>
@@ -233,24 +230,63 @@ function AboutCard(){
   )
 }
 
+
 function QuickAccessCard() {
-  const buttons = ["About Me", "Projects", "Contact", "Blog"];
+  const [activeCard, setActiveCard] = useState(null);
+
+  const buttons = [
+    { label: "About Me", component: <AboutCard /> },
+    { label: "Projects", component: <ProjectCard /> },
+    { label: "Info", component: <InfoCard /> },
+  ];
+
+  const content = () => {
+    if (!activeCard) {
+      return (
+        <div className="flex flex-col gap-4">
+          {buttons.map((btn, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveCard(btn.component)}
+              className="w-full py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 cursor-pointer"
+            >
+              {btn.label}
+            </button>
+          ))}
+        </div>
+      );
+    }
+
+    return (
+      <div className="">
+        <button
+          onClick={() => setActiveCard(null)}
+          className="absolute top-0 left-0  text-4xl font-semibold 
+                     transition-all duration-200 
+                     hover:opacity-70 hover:-translate-x-1 active:scale-95 cursor-pointer" 
+        >
+           <IoIosArrowRoundBack />
+        </button>
+
+        <div className="mt-6">
+          {activeCard}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="flex items-center justify-center">
-      {/* <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-xl shadow-lg w-64">
-        {buttons.map((label, index) => (
-          <button
-            key={index}
-            className="w-full py-3 rounded-lg bg-gradient-to-r from-red-400 to-red-500 text-white font-semibold shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:from-red-500 hover:to-red-600"
-          >
-            {label}
-          </button>
-        ))} */}
-      {/* </div> */}
+      <div className="p-6 rounded-xl  relative">
+        {content()}
+      </div>
     </div>
   );
 }
+
+
+
+
 
 
 

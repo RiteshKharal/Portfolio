@@ -33,6 +33,7 @@ export function ProjectCard({ title, description, image, tech, onOpen }) {
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
+            priority
           />
         </div>
 
