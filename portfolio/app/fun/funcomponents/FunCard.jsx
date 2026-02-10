@@ -280,7 +280,6 @@ function QuickAccessCard() {
           <IoIosArrowRoundBack />
         </button>
 
-        {/* Centered active card */}
         <div className="flex flex-1 items-center justify-center mt-8">
           {activeCard}
         </div>
@@ -290,7 +289,7 @@ function QuickAccessCard() {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="p-6 rounded-xl relative w-[400px]">
+      <div className="p-6 rounded-xl relative ">
         {content()}
       </div>
     </div>
