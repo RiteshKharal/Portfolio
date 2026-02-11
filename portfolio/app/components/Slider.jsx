@@ -14,14 +14,7 @@ import {
 import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 
-
-export default function SliderToggle() {
-  const [active, setActive] = useState("skills");
-  const [openProject, setOpenProject] = useState(null);
-
-  const [showTill, setShowTill] = useState(4);
-
-  const ProjectsDetails = [
+export const ProjectsDetails = [
     {
       title: "Portfolio Website",
 
@@ -45,6 +38,38 @@ export default function SliderToggle() {
       github: "https://github.com/RiteshKharal/Portfolio-Files",
     },
   ];
+
+
+export default function SliderToggle() {
+  const [active, setActive] = useState("skills");
+  const [openProject, setOpenProject] = useState(null);
+
+  const [showTill, setShowTill] = useState(4);
+
+//   const ProjectsDetails = [
+//     {
+//       title: "Portfolio Website",
+
+//       description: "A clean minimal portfolio with modern UI.",
+
+//       LongDesc: (
+//   <section>
+//     A space where I share the projects and progress I’ve been working on and the ideas I enjoy building. It’s designed to be clean and easy to explore.
+//     <br /><br />
+//     This portfolio is meant to showcase my work, and document my progress along the way. Feel free to explore the projects, look around, and get a sense of what I’ve been building recently.
+//   </section>
+// ),
+
+
+//       image: "/Portfolioimg.png",
+
+//       tech: ["React", "Tailwind", "Next.js"],
+
+//       live: "https://riteshkharal.vercel.app/",
+      
+//       github: "https://github.com/RiteshKharal/Portfolio-Files",
+//     },
+//   ];
 
   const skillsContent = (
     <div className="rounded-xl bg-background/1 border border-white/10 shadow-lg p-6 grid grid-cols-2 gap-4">
@@ -126,9 +151,6 @@ export default function SliderToggle() {
 
   const outputSlider =
     active === "skills" ? skillsContent : ProjectsContent;
-
-
-    
 
 
   return (

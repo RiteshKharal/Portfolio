@@ -6,19 +6,16 @@ import { Josefin_Sans } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaGithub,FaArrowRight } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
-// Global Josefin Sans font
+
+
 export const josefin = Josefin_Sans({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-josefin",
 });
 
-// Sample projects array
 
-
-// ---------------- Project Card ----------------
-
-export function ProjectCard({ title, description, image, tech, onOpen }) {
+export function ProjectCard({ title, description, image, tech = [], onOpen }) {
   return (
     <button
       type="button"
@@ -27,14 +24,14 @@ export function ProjectCard({ title, description, image, tech, onOpen }) {
     >
       <div className="relative w-full h-64 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 p-0 group-hover:p-2 transition-all duration-300">
-          <Image
+          {image && <Image
             src={image}
             alt={title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
             priority
-          />
+          />}
         </div>
 
         <div className="absolute inset-0 bg-background/50 pointer-events-none transition duration-300 group-hover:bg-background/70" />
@@ -78,6 +75,7 @@ export function ProjectCard({ title, description, image, tech, onOpen }) {
   );
 }
 
+
 ProjectCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
@@ -85,8 +83,6 @@ ProjectCard.propTypes = {
   tech: PropTypes.arrayOf(PropTypes.string),
   onOpen: PropTypes.func,
 };
-
-// ---------------- Projects Modal ----------------
 
 
 export function ProjectModal({ project, onClose }) {
@@ -100,12 +96,10 @@ export function ProjectModal({ project, onClose }) {
     }, 250);
   };
 
-  // Mount animation
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // ESC to close with animation
   useEffect(() => {
     const handler = (e) => {
       if (e.key === "Escape") handleClose();
@@ -131,7 +125,6 @@ export function ProjectModal({ project, onClose }) {
         ${mounted && !closing ? "opacity-100" : "opacity-0"}
       `}
     >
-      {/* Card */}
       <div
         onClick={(e) => e.stopPropagation()}
         className={`
@@ -155,12 +148,11 @@ export function ProjectModal({ project, onClose }) {
         `}
       >
 
-        {/* Header */}
         <div className="
           flex items-center gap-3
           px-6 py-4
           text-foreground/80
-          hover:text-slate-950
+          hover:text-foreground/50
           hover:text-[1.05rem]
           transition-all duration-300
         ">
@@ -173,10 +165,8 @@ export function ProjectModal({ project, onClose }) {
           </button>
         </div>
 
-        {/* Content */}
         <div className="flex flex-col items-center px-12 py-8 gap-12">
 
-          {/* Image */}
           <div className="
             relative w-[50%] max-w-4xl
             h-[40vh]

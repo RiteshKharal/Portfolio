@@ -3,6 +3,11 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { IoClose } from "react-icons/io5";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { ProjectCard } from "../../components/ProjectsCard";
+import { ProjectsDetails } from "@/app/components/Slider";
 
 export default function FunProjectCard({ item, onClose }) {
   const [mounted, setMounted] = useState(false);
@@ -11,7 +16,7 @@ export default function FunProjectCard({ item, onClose }) {
 
   let GetResult = ()=>{
     if (item === 'project') {
-      return <ProjectCard/>;
+      return <ProjectCards/>;
     }else if(item === 'about') {
       return <AboutCard/>;
     }    else if(item === 'quickaccess') {
@@ -85,6 +90,7 @@ export default function FunProjectCard({ item, onClose }) {
         </div>
 
         <div className=" text-xl bg-background/50 text-yellow-400 mt-5 p-6 rounded-lg font-mono relative mx-8">
+
         {
           GetResult()
         }
@@ -214,20 +220,41 @@ function CloseButton({ onClose }) {
 
 
 
-function ProjectCard({ pr}) {
+function ProjectCards({ pr}) {
   return (
-    <div className="w-full h-64   rounded-xl p-4">
-      Project
+    <div className="w-full flex flex-col items-center gap-8">
+      Projects
+
+      {ProjectsDetails.map((project, i) => (
+          <ProjectCard
+            key={i}
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            tech={project.tech}
+            // onOpen={(() => setOpenProject(project))} 
+          />
+        ))}
+
     </div>
   )
 }
 
-function AboutCard(){
-  return(
-    <div>
-      About
+function AboutCard() {
+  return (
+    <div className="text-foreground p-6 rounded-xl ">
+      <div className="text-lg leading-relaxed mb-4">
+        I am a <span className="text-primary font-semibold">15-year-old </span> 
+        Full-Stack Developer & Student currently exploring new and upcoming technologies. 🚀
+      </div>
+
+      <div className="flex items-center gap-4 text-2xl justify-center p-9">
+        <a href="https://github.com/RiteshKharal/" target="_blank"><FaGithub className="hover:scale-110 transition" /></a>
+        <a href="mailto:kharalritesh@gmail.com"><MdEmail className="hover:scale-110 transition" /></a>
+        <a href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/"><FaLinkedin className="hover:scale-110 transition" /></a>
+      </div>
     </div>
-  )
+  );
 }
 
 
@@ -236,8 +263,8 @@ function QuickAccessCard() {
 
   const buttons = [
     { label: "About Me", component: <AboutCard /> },
-    { label: "Projects", component: <ProjectCard /> },
-    { label: "Info", component: <InfoCard /> },
+    { label: "Projects", component: <ProjectCards /> },
+    { label: "Site info", component: <InfoCard /> },
   ];
 
   const content = () => {
@@ -270,7 +297,6 @@ function QuickAccessCard() {
 
     return (
       <div className="relative flex flex-col justify-between min-h-[300px]">
-        {/* Back button top-left */}
         <button
           onClick={() => setActiveCard(null)}
           className="absolute top-0 left-0 text-4xl font-semibold 
