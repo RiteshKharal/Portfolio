@@ -14,9 +14,9 @@ export default function Game() {
 
   const tileMap = [
   "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  "X        X      S      X     X",
+  "X  I     X      S      X     X",
   "X XX XXX X XXX XX  XXX X XX  X",
-  "X                  I         X",
+  "X       r          I         X",
   "X XX X XXXXX X XXXXX X XX  X X",
   "X    X       X       X     X X",
   "XXXX XXXX XXXX XXXX XXXX     X",
@@ -25,7 +25,7 @@ export default function Game() {
   "X       b               XX   X",
   "XXXX X X   X X XXXXX X XX    X",
   "X   I       X       X       XX",
-  "XXXX X XXXXX   XXr X X XXXXXXX",
+  "XXXX X XXXXX   XXX X X XXXXXXX",
   "X                       X   XX",
   "X XX XXX X XXXX XXXXX X XX XXX",
   "X  S          X  PX     I  X X",
@@ -219,7 +219,7 @@ export default function Game() {
     ctx.lineTo(boardWidth, uiHeight);
     ctx.stroke();
 
-    ctx.fillStyle = "#2effff";
+    ctx.fillStyle = "hsla(174 55.3% 41.8% )";
     ctx.font = "bold 16px Orbitron, monospace";
     ctx.fillText(`SCORE: ${score.current}`, 16, 30);
 

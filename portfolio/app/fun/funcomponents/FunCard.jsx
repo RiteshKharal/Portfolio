@@ -6,8 +6,8 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { ProjectCard } from "../../components/ProjectsCard";
 import { ProjectsDetails } from "@/app/components/Slider";
+import { TbExternalLink } from "react-icons/tb";
 
 export default function FunProjectCard({ item, onClose }) {
   const [mounted, setMounted] = useState(false);
@@ -89,11 +89,11 @@ export default function FunProjectCard({ item, onClose }) {
 
         </div>
 
-        <div className=" text-xl bg-background/50 text-yellow-400 mt-5 p-6 rounded-lg font-mono relative mx-8">
+        <div className=" text-xl bg-background/50 text-yellow-400 mt-5 p-6 rounded-lg font-mono relative w-full">
 
         {
           GetResult()
-        }
+        }   
 
         </div>
 
@@ -220,25 +220,74 @@ function CloseButton({ onClose }) {
 
 
 
-function ProjectCards({ pr}) {
+function ProjectCards() {
+  const [activeProject, setActiveProject] = useState(null);
+
   return (
-    <div className="w-full flex flex-col items-center gap-8">
-      Projects
+    <div className="w-full flex flex-col items-center gap-8 ">
+      <h2 className="text-2xl font-bold ">Projects</h2>
 
-      {ProjectsDetails.map((project, i) => (
-          <ProjectCard
+      <div className="grid md:grid-cols-2  items-center text-center gap-6 flex-wrap">
+        {ProjectsDetails.map((project, i) => (
+          <div
             key={i}
-            title={project.title}
-            description={project.description}
-            image={project.image}
-            tech={project.tech}
-            // onOpen={(() => setOpenProject(project))} 
-          />
-        ))}
+            onClick={() =>
+              setActiveProject(activeProject === i ? null : i)
+            }
+            className=" relative group hover:-translate-y-1.5 transition-all duration-300"
+          >
+            <div className="relative w-80 h-48 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src={project.image}
+                fill
+                alt={project.title}
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
 
+              <div className="absolute inset-0 bg-linear-to-t from-foreground/10 via-background/10 to-transparent opacity-100" />
+            </div>
+
+            <h3 className="text-lg font-semibold mt-3 group-hover:underline transition">
+              {project.title}
+            </h3>
+
+            
+              <div className="absolute bottom-12 right-3 flex gap-2 
+              bg-background/40 backdrop-blur-lg 
+              border border-border/10 
+              text-foreground text-xl 
+              p-1 rounded-lg shadow-xl  transition-all duration-300 ">
+
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    className="p-2 rounded-md hover:bg-foreground/5 hover:scale-110 transition-all"
+                  >
+                    <FaGithub />
+                  </a>
+                )}
+
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    className="p-2 rounded-md hover:bg-foreground/5 hover:scale-110 transition"
+                  >
+                    <TbExternalLink />
+                  </a>
+                )}
+              </div>
+            
+          </div>
+        ))}
+      </div>
     </div>
-  )
+  );
 }
+
+
+
 
 function AboutCard() {
   return (
