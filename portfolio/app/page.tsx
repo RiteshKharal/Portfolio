@@ -27,56 +27,62 @@ export default function Home() {
   }}
 ></div>
 
+      
 
 
       
-      <section className="mt-24 flex justify-center px-4 p-1 rounded-3xl">
-  <div className="w-full max-w-3xl rounded-2xl border border-border bg-background/40 p-8 shadow-md flex flex-col gap-4">
+          <section className="mt-24 flex justify-center rounded-3xl">
+      <div className="w-full max-w-3xl rounded-2xl border border-border/80 bg-background/40 p-6 shadow-md flex flex-col gap-4">
 
-    <div className="flex items-start justify-between gap-4">
-      <div>
-        <h1 className={`text-2xl md:text-[2rem] font-bold ${fonts.lilitaOne.className} font-lilita`}>
-          Ritesh Kharal
-        </h1>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className={`text-2xl md:text-[2rem] font-bold ${fonts.lilitaOne.className} font-lilita`}>
+              Ritesh Kharal
+            </h1>
 
-        <div className="mt-2 flex items-center gap-2 text-muted-foreground text-l font-normal">
-          <span className="text-lg"><FaLocationDot /></span>
-          <span className="text-lg ">Lumbini, Nepal</span>
+            <div className="mt-2 flex items-center gap-2 text-muted-foreground text-l font-normal">
+              <span className="text-lg"><FaLocationDot /></span>
+              <span className="text-lg ">Lumbini, Nepal</span>
+            </div>
+          </div>
+
+          <div className="flex gap-3">
+            <a
+              href="mailto:kharalritesh@email.com"
+              className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition hover:scale-110"
+            >
+              <IoIosMail />
+            </a>
+            <a
+              href="https://github.com/RiteshKharal"
+              target="_blank"
+              className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition hover:scale-110"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/"
+              target="_blank"
+              className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition hover:scale-110"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
         </div>
+
+        <p className="text-base md:text-lg leading-relaxed text-foreground/90">
+          I am a 15-year-old full-stack web developer, Currently learning and improving every day. 
+        </p>
       </div>
-
-      <div className="flex gap-3">
-        <a
-          href="mailto:kharalritesh@email.com"
-          className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition"
-        >
-          <IoIosMail />
-        </a>
-        <a
-          href="https://github.com/RiteshKharal"
-          target="_blank"
-          className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition"
-        >
-          <FaGithub />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/"
-          target="_blank"
-          className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition"
-        >
-          <FaLinkedin />
-        </a>
-      </div>
-    </div>
-
-    <p className="text-base md:text-lg leading-relaxed text-foreground/90">
-      I am a 15-year-old full-stack web developer, Currently learning and improving every day. 
-    </p>
-  </div>
-</section>
+    </section>
 
 
-  <SliderToggle></SliderToggle>
+<a className="mt-10 mb-10 bg-foreground/6 p-4 rounded-md text-[14px] w-max transition hover:bg-foreground/10 absolute top-5 z-999 backdrop-blur-2xl font-medium font-mono text-foreground " href="./Game" >
+    🎮 Enter the fun zone
+</a>
+
+
+        <SliderToggle></SliderToggle>
 
 
       <ScrollDownIndicator />
@@ -131,7 +137,7 @@ export default function Home() {
               </a>
 
               
-            </section>
+      </section>
             
     </div>
 

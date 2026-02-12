@@ -165,7 +165,7 @@ export default function SliderToggle() {
 
 <section
   id="SliderSection"
-  className="mt-25 w-full max-w-3xl rounded-2xl bg-background/60"
+  className="mt-10 w-full max-w-3xl rounded-2xl bg-background/60"
 >
 
     <div className="w-full max-w-3xl space-y-6 h-10 border border-border/80 rounded-2xl bg-white/10 dark:bg-black/10 backdrop-blur-lg ">
@@ -212,11 +212,10 @@ function SkillTag({ icon, text, subtext, color }) {
         rounded-xl
         bg-foreground/2
         px-5 py-4
-        backdrop-blur
         transition
         border border-transparent
         hover:border-[color-mix(in_srgb,var(--hover-color)_10%,transparent)]
-        /* hover:shadow-[0_0_0_1px_color-mix(in_srgb,var(--hover-color)_10%,transparent),0_8px_15px_color-mix(in_srgb,var(--hover-color)_20%,transparent)] */
+        hover:shadow-[0_0_0_1px_color-mix(in_srgb,var(--hover-color)_10%,transparent),0_8px_15px_color-mix(in_srgb,var(--hover-color)_20%,transparent)] 
         hover:bg-foreground/4
         text-foreground
         hover:scale-[1.02]
