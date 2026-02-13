@@ -78,7 +78,7 @@ export default function Home() {
       </div>
     </section>
 
-    <a className="mt-10 bg-foreground/6 p-4 rounded-md text-[14px] w-max transition hover:bg-foreground/10  top-5 z-999 backdrop-blur-2xl font-medium font-mono text-foreground " href="./Game" >
+    <a className="mt-10 bg-foreground/6 p-4 rounded-md text-[14px] w-max transition hover:bg-foreground/10  top-5 z-999 backdrop-blur-2xl font-medium font-mono text-foreground invisible md:visible " href="./Game" >
     🎮 Enter the fun zone
 </a>
 
@@ -88,10 +88,8 @@ export default function Home() {
 </a> */}
 
 
-        {/* <SliderToggle></SliderToggle> */}
         <section className="mt-20 w-full max-w-3xl flex flex-col gap-14">
 
-        {/* Skills */}
         <div className="w-full rounded-xl p-6 flex flex-col gap-6">
 
           <h2 className="text-2xl font-semibold tracking-tight">
@@ -102,7 +100,6 @@ export default function Home() {
 
         </div>
 
-        {/* Projects */}
         <div className="w-full rounded-xl p-6 flex flex-col gap-20">
 
           <h1 className="text-2xl font-semibold tracking-tight">
