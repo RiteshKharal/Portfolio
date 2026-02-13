@@ -5,6 +5,8 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import * as fonts from './fonts';
 import { FaLocationDot } from "react-icons/fa6";
+import { SkillsContent, ProjectsContent } from './components/Slider.jsx'; 
+import { MdOutlineWork } from "react-icons/md";
 
 // TO Make: ADD a slight gradient follow the user's cursor for a cool effect
 
@@ -76,13 +78,46 @@ export default function Home() {
       </div>
     </section>
 
-
-<a className="mt-10 mb-10 bg-foreground/6 p-4 rounded-md text-[14px] w-max transition hover:bg-foreground/10 absolute top-5 z-999 backdrop-blur-2xl font-medium font-mono text-foreground " href="./Game" >
+    <a className="mt-10 bg-foreground/6 p-4 rounded-md text-[14px] w-max transition hover:bg-foreground/10  top-5 z-999 backdrop-blur-2xl font-medium font-mono text-foreground " href="./Game" >
     🎮 Enter the fun zone
 </a>
 
 
-        <SliderToggle></SliderToggle>
+{/* <a className="mt-10 mb-10 bg-foreground/6 p-4 rounded-md text-[14px] w-max transition hover:bg-foreground/10 absolute top-5 z-999 backdrop-blur-2xl font-medium font-mono text-foreground " href="./Game" >
+    🎮 Enter the fun zone
+</a> */}
+
+
+        {/* <SliderToggle></SliderToggle> */}
+        <section className="mt-20 w-full max-w-3xl flex flex-col gap-14">
+
+        {/* Skills */}
+        <div className="w-full rounded-xl p-6 flex flex-col gap-6">
+
+          <h2 className="text-2xl font-semibold tracking-tight">
+            🚀 Skills
+          </h2>
+
+          <SkillsContent />
+
+        </div>
+
+        {/* Projects */}
+        <div className="w-full rounded-xl p-6 flex flex-col gap-20">
+
+          <h1 className="text-2xl font-semibold tracking-tight">
+            💼 Projects
+          </h1>
+
+          <ProjectsContent />
+
+        </div>
+
+      </section>
+
+      <ScrollDownIndicator />
+
+
 
 
       <ScrollDownIndicator />
@@ -93,7 +128,7 @@ export default function Home() {
                 fixed bottom-5 right-5
                 flex flex-col gap-2
                 font-bold text-30
-                z-50 hover:text-xl
+                z-50 hover:text-[1.15rem]
               "
             >
               <a
@@ -138,6 +173,43 @@ export default function Home() {
 
               
       </section>
+
+     <footer className="mt-24 py-8 flex flex-col items-center gap-6 text-xs tracking-wide text-foreground/60">
+
+  <p className="uppercase letter-spacing-wide">
+    © {new Date().getFullYear()} Ritesh Kharal
+  </p>
+
+  <div className="flex items-center gap-6 text-lg">
+
+    <a
+      href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/"
+      target="_blank"
+      className="transition duration-300 hover:text-[#0A66C2] hover:-translate-y-1"
+    >
+      <FaLinkedin />
+    </a>
+
+    <a
+      href="mailto:kharalritesh@gmail.com"
+      target="_blank"
+      className="transition duration-300 hover:text-[#D14836] hover:-translate-y-1"
+    >
+      <IoIosMail />
+    </a>
+
+    <a
+      href="https://github.com/RiteshKharal"
+      target="_blank"
+      className="transition duration-300 hover:text-[#6ec497] hover:-translate-y-1"
+    >
+      <FaGithub /> 
+    </a>
+
+  </div>
+
+</footer>
+
             
     </div>
 

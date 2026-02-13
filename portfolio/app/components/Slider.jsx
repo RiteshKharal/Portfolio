@@ -42,9 +42,8 @@ export const ProjectsDetails = [
 
 export default function SliderToggle() {
   const [active, setActive] = useState("skills");
-  const [openProject, setOpenProject] = useState(null);
 
-  const [showTill, setShowTill] = useState(4);
+  
 
 //   const ProjectsDetails = [
 //     {
@@ -71,86 +70,10 @@ export default function SliderToggle() {
 //     },
 //   ];
 
-  const skillsContent = (
-    <div className="rounded-xl bg-background/1 border border-white/10 shadow-lg p-6 grid grid-cols-2 gap-4">
-  <SkillTag
-    text="React"
-    subtext="UI library"
-    icon={<FaReact />}
-    color="#61DAFB"
-  />
-  <SkillTag
-    text="Next.js"
-    subtext="React framework"
-    icon={<SiNextdotjs />}
-    color="#ffffff"
-  />
-  <SkillTag
-    text="TailwindCSS"
-    subtext="CSS framework"
-    icon={<SiTailwindcss />}
-    color="#38BDF8"
-  />
-  <SkillTag
-    text="UI / UX"
-    subtext="Design principles"
-    icon={<FaFigma />}
-    color="#A259FF"
-  />
-  <SkillTag
-    text="Git"
-    subtext="Version control"
-    icon={<FaGitAlt />}
-    color="#F1502F"
-  />
-  <SkillTag
-    text="VS Code"
-    subtext="Code editor"
-    icon={<VscCode />}
-    color="#007ACC"
-  />
-  <SkillTag
-    text="Figma"
-    subtext="Design tool"
-    icon={<FaFigma />}
-    color="#A259FF"
-  />
-  <SkillTag
-    text="Node.js"
-    subtext="Backend runtime"
-    icon={<FaNodeJs />}
-    color="#68A063"
-  />
-</div>
 
-  );
-
-  const ProjectsContent = (
-    <div className="flex flex-wrap gap-6 justify-center">
-        {ProjectsDetails.slice(0, showTill).map((project, i) => (
-          <ProjectCard
-            key={i}
-            title={project.title}
-            description={project.description}
-            image={project.image}
-            tech={project.tech}
-            onOpen={(() => setOpenProject(project))} 
-          />
-        ))}
-
-        {ProjectsDetails.length > showTill && (
-          <button
-            onClick={() => setShowTill(showTill + 4)}
-            className="mt-7 px-4 py-2 bg-primary text-primary-foreground rounded-lg cursor-pointer hover:opacity-80"
-          >
-            Show More
-          </button>
-        )}
-      </div>
-  )
 
   const outputSlider =
-    active === "skills" ? skillsContent : ProjectsContent;
+    active === "skills" ? <SkillsContent/> : <ProjectsContent/>;
 
 
   return (
@@ -243,5 +166,102 @@ function SkillTag({ icon, text, subtext, color }) {
         <p className="text-xs opacity-70">{subtext}</p>
       </div>
     </div>
+  );
+}
+
+export function ProjectsContent(){
+  const [showTill, setShowTill] = useState(4);
+  const [openProject, setOpenProject] = useState(null);
+
+
+ return(
+  <>
+
+  {openProject ? (
+  <ProjectModal
+    project={openProject}
+    onClose={() => setOpenProject(null)}
+  />
+) : null}
+
+ <div className="flex flex-wrap gap-6 justify-center">
+        {ProjectsDetails.slice(0, showTill).map((project, i) => (
+          <ProjectCard
+            key={i}
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            tech={project.tech}
+            onOpen={(() => setOpenProject(project))} 
+          />
+        ))}
+
+        {ProjectsDetails.length > showTill && (
+          <button
+            onClick={() => setShowTill(showTill + 4)}
+            className="mt-7 px-4 py-2 bg-primary text-primary-foreground rounded-lg cursor-pointer hover:opacity-80"
+          >
+            Show More
+          </button>
+        )}
+      </div>
+      </>
+      )
+}
+
+export function SkillsContent(){
+
+  return(
+    <div className="rounded-xl bg-background/1 border border-white/10 shadow-lg p-6 grid grid-cols-2 gap-4">
+  <SkillTag
+    text="React"
+    subtext="UI library"
+    icon={<FaReact />}
+    color="#61DAFB"
+  />
+  <SkillTag
+    text="Next.js"
+    subtext="React framework"
+    icon={<SiNextdotjs />}
+    color="#ffffff"
+  />
+  <SkillTag
+    text="TailwindCSS"
+    subtext="CSS framework"
+    icon={<SiTailwindcss />}
+    color="#38BDF8"
+  />
+  <SkillTag
+    text="UI / UX"
+    subtext="Design principles"
+    icon={<FaFigma />}
+    color="#A259FF"
+  />
+  <SkillTag
+    text="Git"
+    subtext="Version control"
+    icon={<FaGitAlt />}
+    color="#F1502F"
+  />
+  <SkillTag
+    text="VS Code"
+    subtext="Code editor"
+    icon={<VscCode />}
+    color="#007ACC"
+  />
+  <SkillTag
+    text="Figma"
+    subtext="Design tool"
+    icon={<FaFigma />}
+    color="#A259FF"
+  />
+  <SkillTag
+    text="Node.js"
+    subtext="Backend runtime"
+    icon={<FaNodeJs />}
+    color="#68A063"
+  />
+</div>
+
   );
 }
