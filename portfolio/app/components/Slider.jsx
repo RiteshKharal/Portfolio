@@ -37,6 +37,28 @@ export const ProjectsDetails = [
       
       github: "https://github.com/RiteshKharal/Portfolio-Files",
     },
+    {
+      title: "TudorTODO",
+
+      description: "A customizable Minimal To do app.",
+
+      LongDesc: (
+  <section>
+    A place to store your To Do tasks safely, built using prisma, next.js, node.js, React.
+    <br /><br />
+    
+  </section>
+),
+
+
+      image: "/TudorTODO.png",
+
+      tech: ["React", "Tailwind", "Next.js"],
+
+      live: "https://tudortodo.vercel.app/",
+      
+      github: "https://github.com/RiteshKharal/todoapp",
+    },
   ];
 
 
@@ -184,7 +206,7 @@ export function ProjectsContent(){
   />
 ) : null}
 
- <div className="flex flex-wrap gap-6 justify-center">
+ <div className="grid gap-6 justify-center grid-cols-2">
         {ProjectsDetails.slice(0, showTill).map((project, i) => (
           <ProjectCard
             key={i}

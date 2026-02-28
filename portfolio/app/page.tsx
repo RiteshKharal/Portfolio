@@ -24,7 +24,7 @@ export default function Home() {
     background: `radial-gradient(
       circle at 0px 0px,
       hsl(0, 0%,100%,0.2) 0%,
-      transparent 40%
+      transparent 15%
     )`,
   }}
 ></div>
