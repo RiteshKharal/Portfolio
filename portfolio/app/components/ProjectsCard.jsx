@@ -153,14 +153,14 @@ export function ProjectModal({ project, onClose }) {
           px-6 py-4
           text-foreground/80
           hover:text-foreground/50
-          hover:text-[1.05rem]
           transition-all duration-300
+          group
         ">
           <button
             onClick={handleClose}
             className="flex items-center gap-2 transition cursor-pointer font-medium"
           >
-            <FaArrowLeft  />
+            <FaArrowLeft  className="group-hover:-translate-x-1 transition"/>
             Back
           </button>
         </div>

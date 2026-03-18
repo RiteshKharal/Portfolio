@@ -1,151 +1,65 @@
 "use client";
 
-import { Josefin_Sans, Righteous, Smooch_Sans } from 'next/font/google';
+import { Josefin_Sans, Righteous, Smooch_Sans } from "next/font/google";
 import { useState } from "react";
-import {ProjectCard} from "./ProjectsCard";
-import {ProjectModal} from "./ProjectsCard";
-const smooch = Smooch_Sans({ subsets: ['latin'], weight: ['100','900'] });
-import {
-  FaReact,
-  FaGitAlt,
-  FaFigma,
-  FaNodeJs
-} from "react-icons/fa";
+import { ProjectCard } from "./ProjectsCard";
+import { ProjectModal } from "./ProjectsCard";
+import { FaReact, FaGitAlt, FaFigma, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
-
-export const ProjectsDetails = [
-    {
-      title: "Portfolio Website",
-
-      description: "A clean minimal portfolio with modern UI.",
-
-      LongDesc: (
-  <section>
-    A space where I share the projects and progress I’ve been working on and the ideas I enjoy building. It’s designed to be clean and easy to explore.
-    <br /><br />
-    This portfolio is meant to showcase my work, and document my progress along the way. Feel free to explore the projects, look around, and get a sense of what I’ve been building recently.
-  </section>
-),
-
-
-      image: "/Portfolioimg.png",
-
-      tech: ["React", "Tailwind", "Next.js"],
-
-      live: "https://riteshkharal.vercel.app/",
-      
-      github: "https://github.com/RiteshKharal/Portfolio-Files",
-    },
-    {
-      title: "TudorTODO",
-
-      description: "A customizable Minimal To do app.",
-
-      LongDesc: (
-  <section>
-    A place to store your To Do tasks safely, built using prisma, next.js, node.js, React.
-    <br /><br />
-    
-  </section>
-),
-
-
-      image: "/TudorTODO.png",
-
-      tech: ["React", "Tailwind", "Next.js"],
-
-      live: "https://tudortodo.vercel.app/",
-      
-      github: "https://github.com/RiteshKharal/todoapp",
-    },
-  ];
-
+import { ProjectsDetails } from "../ProjectDetails";
 
 export default function SliderToggle() {
   const [active, setActive] = useState("skills");
 
-  
-
-//   const ProjectsDetails = [
-//     {
-//       title: "Portfolio Website",
-
-//       description: "A clean minimal portfolio with modern UI.",
-
-//       LongDesc: (
-//   <section>
-//     A space where I share the projects and progress I’ve been working on and the ideas I enjoy building. It’s designed to be clean and easy to explore.
-//     <br /><br />
-//     This portfolio is meant to showcase my work, and document my progress along the way. Feel free to explore the projects, look around, and get a sense of what I’ve been building recently.
-//   </section>
-// ),
-
-
-//       image: "/Portfolioimg.png",
-
-//       tech: ["React", "Tailwind", "Next.js"],
-
-//       live: "https://riteshkharal.vercel.app/",
-      
-//       github: "https://github.com/RiteshKharal/Portfolio-Files",
-//     },
-//   ];
-
-
-
   const outputSlider =
-    active === "skills" ? <SkillsContent/> : <ProjectsContent/>;
-
+    active === "skills" ? <SkillsContent /> : <ProjectsContent />;
 
   return (
     <>
+      {openProject ? (
+        <ProjectModal
+          project={openProject}
+          onClose={() => setOpenProject(null)}
+        />
+      ) : null}
 
-    {openProject ? (
-  <ProjectModal
-    project={openProject}
-    onClose={() => setOpenProject(null)}
-  />
-) : null}
+      <section
+        id="SliderSection"
+        className="mt-10 w-full max-w-3xl rounded-2xl bg-background/60"
+      >
+        <div className="w-full max-w-3xl space-y-6 h-10 border border-border/80 rounded-2xl bg-white/10 dark:bg-black/10 backdrop-blur-lg ">
+          <div className="h-10 rounded-md p-1 bg-accent grid grid-cols-2 gap-1">
+            <button
+              onClick={() => setActive("skills")}
+              className={`h-full rounded-md text-sm font-semibold transition-all
+            ${
+              active === "skills"
+                ? "bg-neutral-700 text-white shadow"
+                : "text-foreground hover:bg-neutral-400/10"
+            }`}
+            >
+              Skills
+            </button>
 
-<section
-  id="SliderSection"
-  className="mt-10 w-full max-w-3xl rounded-2xl bg-background/60"
->
-
-    <div className="w-full max-w-3xl space-y-6 h-10 border border-border/80 rounded-2xl bg-white/10 dark:bg-black/10 backdrop-blur-lg ">
-      <div className="h-10 rounded-md p-1 bg-accent grid grid-cols-2 gap-1">
-        <button
-          onClick={() => setActive("skills")}
-          className={`h-full rounded-md text-sm font-semibold transition-all
-            ${active === "skills"
-              ? "bg-neutral-700 text-white shadow"
-              : "text-foreground hover:bg-neutral-400/10"}`}
-        >
-          Skills
-        </button>
-
-        <button
-          onClick={() => setActive("projects")}
-          className={`h-full rounded-md text-sm font-semibold transition-all
-            ${active === "projects"
-              ? "bg-neutral-700 text-white shadow"
-              : "text-foreground hover:bg-neutral-400/10"}`}
-        >
-          Projects
-        </button>
-      </div>
-
-      
-    </div>
-    <div className={`transition-all duration-300 mt-5`}>
-        {outputSlider}
-      </div>
+            <button
+              onClick={() => setActive("projects")}
+              className={`h-full rounded-md text-sm font-semibold transition-all
+            ${
+              active === "projects"
+                ? "bg-neutral-700 text-white shadow"
+                : "text-foreground hover:bg-neutral-400/10"
+            }`}
+            >
+              Projects
+            </button>
+          </div>
+        </div>
+        <div className={`transition-all duration-300 mt-5`}>{outputSlider}</div>
       </section>
     </>
   );
 }
-
 
 function SkillTag({ icon, text, subtext, color }) {
   return (
@@ -191,22 +105,20 @@ function SkillTag({ icon, text, subtext, color }) {
   );
 }
 
-export function ProjectsContent(){
+export function ProjectsContent() {
   const [showTill, setShowTill] = useState(4);
   const [openProject, setOpenProject] = useState(null);
 
+  return (
+    <>
+      {openProject ? (
+        <ProjectModal
+          project={openProject}
+          onClose={() => setOpenProject(null)}
+        />
+      ) : null}
 
- return(
-  <>
-
-  {openProject ? (
-  <ProjectModal
-    project={openProject}
-    onClose={() => setOpenProject(null)}
-  />
-) : null}
-
- <div className="grid gap-6 justify-center grid-cols-2">
+      <div className="grid gap-6 justify-center grid-cols-2 items-center">
         {ProjectsDetails.slice(0, showTill).map((project, i) => (
           <ProjectCard
             key={i}
@@ -214,7 +126,7 @@ export function ProjectsContent(){
             description={project.description}
             image={project.image}
             tech={project.tech}
-            onOpen={(() => setOpenProject(project))} 
+            onOpen={() => setOpenProject(project)}
           />
         ))}
 
@@ -227,63 +139,61 @@ export function ProjectsContent(){
           </button>
         )}
       </div>
-      </>
-      )
+    </>
+  );
 }
 
-export function SkillsContent(){
-
-  return(
-    <div className="rounded-xl bg-background/1 border border-white/10 shadow-lg p-6 grid grid-cols-2 gap-4">
-  <SkillTag
-    text="React"
-    subtext="UI library"
-    icon={<FaReact />}
-    color="#61DAFB"
-  />
-  <SkillTag
-    text="Next.js"
-    subtext="React framework"
-    icon={<SiNextdotjs />}
-    color="#ffffff"
-  />
-  <SkillTag
-    text="TailwindCSS"
-    subtext="CSS framework"
-    icon={<SiTailwindcss />}
-    color="#38BDF8"
-  />
-  <SkillTag
-    text="UI / UX"
-    subtext="Design principles"
-    icon={<FaFigma />}
-    color="#A259FF"
-  />
-  <SkillTag
-    text="Git"
-    subtext="Version control"
-    icon={<FaGitAlt />}
-    color="#F1502F"
-  />
-  <SkillTag
-    text="VS Code"
-    subtext="Code editor"
-    icon={<VscCode />}
-    color="#007ACC"
-  />
-  <SkillTag
-    text="Figma"
-    subtext="Design tool"
-    icon={<FaFigma />}
-    color="#A259FF"
-  />
-  <SkillTag
-    text="Node.js"
-    subtext="Backend runtime"
-    icon={<FaNodeJs />}
-    color="#68A063"
-  />
-</div>
-
+export function SkillsContent() {
+  return (
+    <div className="rounded-xl bg-background/1  shadow-lg p-6 grid grid-cols-2 gap-4">
+      <SkillTag
+        text="React"
+        subtext="UI library"
+        icon={<FaReact />}
+        color="#61DAFB"
+      />
+      <SkillTag
+        text="Next.js"
+        subtext="React framework"
+        icon={<SiNextdotjs />}
+        color="#ffffff"
+      />
+      <SkillTag
+        text="TailwindCSS"
+        subtext="CSS framework"
+        icon={<SiTailwindcss />}
+        color="#38BDF8"
+      />
+      <SkillTag
+        text="UI / UX"
+        subtext="Design principles"
+        icon={<FaFigma />}
+        color="#A259FF"
+      />
+      <SkillTag
+        text="Git"
+        subtext="Version control"
+        icon={<FaGitAlt />}
+        color="#F1502F"
+      />
+      <SkillTag
+        text="VS Code"
+        subtext="Code editor"
+        icon={<VscCode />}
+        color="#007ACC"
+      />
+      <SkillTag
+        text="Figma"
+        subtext="Design tool"
+        icon={<FaFigma />}
+        color="#A259FF"
+      />
+      <SkillTag
+        text="Node.js"
+        subtext="Backend runtime"
+        icon={<FaNodeJs />}
+        color="#68A063"
+      />
+    </div>
   );
 }

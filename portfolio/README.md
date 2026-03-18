@@ -92,9 +92,9 @@ A modern, interactive portfolio website showcasing my journey as a 15-year-old f
 portfolio/
 ├── app/
 │   ├── components/
-│   │   ├── BackgroundAnimation.jsx    # Falling flames effect
-│   │   ├── Loading.jsx                # Initial loading screen
-│   │   ├── MouseFollower.tsx          # Cursor gradient effect
+│   │   ├── BackgroundAnimation.jsx    # Stars 
+│   │   ├── Loading.jsx                # Initial loading screen (Blur)
+│   │   ├── MouseFollower.tsx          # Cursor gradient effect, Not in use
 │   │   ├── ProjectsCard.jsx           # Project display components
 │   │   ├── ScrollDownIndicator.jsx    # Bottom scroll button
 │   │   ├── Slider.jsx                 # Skills/Projects toggle
