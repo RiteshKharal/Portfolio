@@ -70,8 +70,8 @@ export const ProjectsDetails = [
 
     tech: ["React", "Tailwind", "Next.js"],
 
-    live: "https://tudortodo.vercel.app/",
+    live: "https://cssstorage.vercel.app/",
 
-    github: "https://github.com/RiteshKharal/todoapp",
+    github: "https://github.com/RiteshKharal/cssstorage",
   },
 ];
