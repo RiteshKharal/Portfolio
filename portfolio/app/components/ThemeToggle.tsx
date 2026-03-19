@@ -14,7 +14,7 @@ export default function ThemeSwitch() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-10 h-10 rounded-full" />;
+    return <div className="w-1 h-1 rounded-full" />;
   }
 
   const isDark = resolvedTheme === "dark";
@@ -22,7 +22,7 @@ export default function ThemeSwitch() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="p-2 rounded-full bg-surface transition-all cursor-pointer "
+      className="rounded-full bg-surface transition-all cursor-pointer h-fit"
       aria-label="Toggle theme"
     >
       {isDark ? <Sun size={20} /> : <Moon size={20} />}

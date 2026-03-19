@@ -6,7 +6,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { ProjectsDetails } from "@/app/components/Slider";
+import { ProjectsDetails } from "@/app/ProjectDetails";
 import { TbExternalLink } from "react-icons/tb";
 
 export default function FunProjectCard({ item, onClose }) {
