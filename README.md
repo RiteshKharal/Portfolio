@@ -86,32 +86,6 @@ A modern, interactive portfolio website showcasing my journey as a 15-year-old f
 
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 📁 Project Structure
-
-```
-portfolio/
-├── app/
-│   ├── components/
-│   │   ├── BackgroundAnimation.jsx    # Stars 
-│   │   ├── Loading.jsx                # Initial loading screen (Blur)
-│   │   ├── MouseFollower.tsx          # Cursor gradient effect, Not in use
-│   │   ├── ProjectsCard.jsx           # Project display components
-│   │   ├── ScrollDownIndicator.jsx    # Bottom scroll button
-│   │   ├── Slider.jsx                 # Skills/Projects toggle
-│   │   └── ThemeToggle.tsx            # Dark/light mode switch
-│   ├── Game/                          # Pac-Man game section
-│   │   ├── Game.jsx                   # Main game logic
-│   │   ├── page.tsx                   # Game page
-│   │   └── funcomponents/
-│   │       └── FunCard.jsx            # Game modal components
-│   ├── fonts.ts                       # Font configurations
-│   ├── globals.css                    # Global styles
-│   ├── layout.tsx                     # Root layout
-│   └── page.tsx                       # Main portfolio page
-├── public/                            # Static assets
-└── package.json                       # Dependencies
-```
-
 ## 🎯 Game Controls
 
 - **Movement**: Arrow Keys or WASD
