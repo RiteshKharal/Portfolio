@@ -41,9 +41,10 @@ export function ProjectCard({ title, description, image, tech = [], onOpen }) {
           className={`absolute inset-0 flex flex-col items-center justify-end text-center p-5 transition-all duration-300
           group-hover:translate-y-[-5px] group-hover:scale-105
           font-bold
-          text-foreground drop-shadow-[0px_0px_1px_rgba(255,255,255,1),0_0px_1px_rgba(0255,0255,0255,1)] ${font.ubuntu.className} dark:drop-shadow-[0_0px_1px_rgba(0,0,0,1),0_0px_1px_rgba(0,0,0,1)] leading-relaxed spacing-`}
+          text-foreground  ${font.ubuntu.className} 
+          drop-shadow-[0px_0px_1px_rgba(255,25,255,0.5),0_0px_1px_rgba(0255,0255,025,0.5),0_0px_1px_rgba(025,0255,0255,0.5),0_0px_1px_rgba(0255,0255,0255,1)] dark:drop-shadow-[0_0px_1px_rgba(0,0,0,1),0_0px_1px_rgba(0,0,0,1)] leading-relaxed `}
         >
-          <h2 className="text-2xl font-semibold text-foreground mb-1 transition-all duration-300 group-hover:text-2xl">
+          <h2 className="text-2xl font-semibold text-foreground mb-1 transition-all duration-300 group-hover:text-2xl tracking-wide">
             {title}
           </h2>
           <p className="text-foreground text-l mb-3 transition-all duration-300 group-hover:text-base">
