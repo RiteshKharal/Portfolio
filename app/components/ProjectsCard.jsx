@@ -6,7 +6,7 @@ import { Josefin_Sans } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaGithub, FaArrowRight } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
-import * as font from '@/app/fonts'
+import * as font from "@/app/fonts";
 
 export const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -18,7 +18,7 @@ export function ProjectCard({ title, description, image, tech = [], onOpen }) {
   return (
     <button
       type="button"
-      className={`w-full max-w-xs sm:max-w-sm shadow-foreground/50   rounded-xl shadow-xs transition overflow-hidden group relative cursor-pointer ${josefin.className}`}
+      className={`w-full max-w-xs sm:max-w-sm shadow-[0px_0px_1px_var(--foreground),0px_0px_1px_var(--foreground),0px_0px_1px_var(--foreground)]  rounded-xl transition overflow-hidden group relative cursor-pointer ${josefin.className}`}
       onClick={onOpen}
     >
       <div className="relative w-full h-64 overflow-hidden flex items-center justify-center">
@@ -39,10 +39,11 @@ export function ProjectCard({ title, description, image, tech = [], onOpen }) {
 
         <div
           className={`absolute inset-0 flex flex-col items-center justify-end text-center p-5 transition-all duration-300
-          group-hover:translate-y-[-5px] group-hover:scale-105
+          group-hover:-translate-y-1.25 group-hover:scale-105
           font-bold
           text-foreground  ${font.ubuntu.className} 
-          drop-shadow-[0px_0px_1px_rgba(255,25,255,0.5),0_0px_1px_rgba(0255,0255,025,0.5),0_0px_1px_rgba(025,0255,0255,0.5),0_0px_1px_rgba(0255,0255,0255,1)] dark:drop-shadow-[0_0px_1px_rgba(0,0,0,1),0_0px_1px_rgba(0,0,0,1)] leading-relaxed `}
+          drop-shadow-[0px_0px_0.8px_rgba(255,25,255,0.5),0_0px_0.8px_rgba(0255,0255,025,0.5),0_0px_0.8px_rgba(025,0255,0255,0.5),0_0px_0.7px_rgba(0255,0255,0255,1)]
+          dark:drop-shadow-[0_0px_0.5px_rgba(0,0,0,1),0_0px_1px_rgba(0,0,0,1)] leading-relaxed `}
         >
           <h2 className="text-2xl font-semibold text-foreground mb-1 transition-all duration-300 group-hover:text-2xl tracking-wide">
             {title}
@@ -54,7 +55,7 @@ export function ProjectCard({ title, description, image, tech = [], onOpen }) {
             {tech.map((item, i) => (
               <span
                 key={i}
-                className="px-2 py-1 bg-background/2 text-foreground text-xs rounded-md border border-border/7 backdrop-blur transition-all duration-300 group-hover:scale-110 font-semibold"
+                className="px-2 py-1 bg-background/2 text-foreground text-xs rounded-md border border-border/7 backdrop-blur transition-all duration-300 group-hover:scale-105 font-semibold"
               >
                 {item}
               </span>

@@ -19,6 +19,9 @@ const smooch = Smooch_Sans({
 export const metadata: Metadata = {
   title: "Ritesh Kharal",
   description: "Portfolio of Ritesh Kharal — Developer, Learner, Builder",
+  icons:{
+    icon:'/PortfolioICON.ico'
+  }
 };
 
 export const viewport = {
@@ -33,6 +36,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+
+      </head>
       <body className="bg-background text-foreground antialiased overflow-x-hidden">
         <NextThemesProvider
           attribute="class"

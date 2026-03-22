@@ -25,10 +25,6 @@ type CompoenentTypes = {
   }[];
 };
 
-// interface OptionTypes{
-  
-// }
-
 export default function Component({ title, options }: CompoenentTypes) {
   const [filterOpen, setFilterOpen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement | null>(null);

@@ -1,6 +1,5 @@
 "use client";
 
-import { Josefin_Sans, Righteous, Smooch_Sans } from "next/font/google";
 import { useState } from "react";
 import { ProjectCard } from "./ProjectsCard";
 import { ProjectModal } from "./ProjectsCard";
@@ -73,14 +72,14 @@ function SkillTag({ icon, text, subtext, color }) {
         px-5 py-4
         transition
         border border-transparent
-        hover:border-[color-mix(in_srgb,var(--hover-color)_10%,transparent)]
-        hover:shadow-[0_0_0_1px_color-mix(in_srgb,var(--hover-color)_10%,transparent),0_8px_15px_color-mix(in_srgb,var(--hover-color)_20%,transparent)] 
+        hover:border-[color-mix(in_srgb,var(--hover-color)_1%,transparent)]
+        hover:shadow-[0_0_0_1px_color-mix(in_srgb,var(--hover-color)_2%,transparent),0_0px_15px_color-mix(in_srgb,var(--hover-color)_20%,transparent)] 
         hover:bg-foreground/4
         text-foreground
-        hover:scale-[1.02]
+        hover:scale-[1.01]
+        hover:-translate-y-1
       "
     >
-      {/* Icon */}
       <div
         className="
           flex h-11 w-11 items-center justify-center
@@ -96,7 +95,6 @@ function SkillTag({ icon, text, subtext, color }) {
         {icon}
       </div>
 
-      {/* Text */}
       <div className="leading-tight">
         <p className="text-sm font-semibold">{text}</p>
         <p className="text-xs opacity-70">{subtext}</p>
@@ -118,16 +116,18 @@ export function ProjectsContent() {
         />
       ) : null}
 
-      <div className="grid gap-6 justify-center grid-cols-2 items-center">
+      <div className="grid gap-6 justify-center grid-cols-2 items-center grid-flow-row">
         {ProjectsDetails.slice(0, showTill).map((project, i) => (
-          <ProjectCard
-            key={i}
+          <div key={i} className="row-span-10">
+            <ProjectCard
+            
             title={project.title}
             description={project.description}
             image={project.image}
             tech={project.tech}
             onOpen={() => setOpenProject(project)}
           />
+          </div>
         ))}
 
         {ProjectsDetails.length > showTill && (
@@ -145,7 +145,7 @@ export function ProjectsContent() {
 
 export function SkillsContent() {
   return (
-    <div className="rounded-xl bg-background/1  shadow-lg p-6 grid grid-cols-2 gap-4">
+    <div className="rounded-xl bg-background/1 p-6 grid grid-cols-2 gap-4">
       <SkillTag
         text="React"
         subtext="UI library"

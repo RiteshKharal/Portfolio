@@ -7,6 +7,8 @@ import * as fonts from "./fonts";
 import { FaLocationDot } from "react-icons/fa6";
 import { SkillsContent, ProjectsContent } from "./components/Slider.jsx";
 import { MdOutlineWork } from "react-icons/md";
+import { IoIosCodeWorking } from "react-icons/io";
+import { FolderKanban } from "lucide-react";
 
 // TO Make: ADD a slight gradient follow the user's cursor for a cool effect
 
@@ -25,7 +27,7 @@ export default function Home() {
       ></div>
 
       <section className="mt-24 flex justify-center rounded-3xl">
-        <div className="w-full max-w-3xl rounded-2xl bg-background/40 p-6 shadow-md flex flex-col gap-4">
+        <div className="w-full max-w-3xl rounded-2xl bg-background/40 p-6 flex flex-col gap-4">
           <div className="flex items-start justify-between gap-4">
             <div>
               <h1
@@ -35,38 +37,42 @@ export default function Home() {
               </h1>
 
               <div className="mt-2 flex items-center gap-2 text-muted-foreground text-l font-normal">
-                <span className="text-lg">
+                <span className="text-[1.01rem]">
                   <FaLocationDot />
                 </span>
-                <span className="text-lg ">Lumbini, Nepal</span>
+                <span className={`text-[1.01rem] ${fonts.geistMono.className}`}>
+                  Lumbini, Nepal
+                </span>
               </div>
             </div>
 
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               <a
                 href="mailto:kharalritesh@email.com"
-                className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition hover:scale-110"
+                className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition-all hover:text-xl"
               >
-                <IoIosMail />
+                <IoIosMail className="transition-all"/>
               </a>
               <a
                 href="https://github.com/RiteshKharal"
                 target="_blank"
-                className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition hover:scale-110"
+                className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition hover:text-xl"
               >
-                <FaGithub />
+                <FaGithub className="transition-all" />
               </a>
               <a
                 href="https://www.linkedin.com/in/ritesh-kharal-1a8269377/"
                 target="_blank"
-                className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition hover:scale-110"
+                className="h-10 w-10 rounded-lg border border-border flex items-center justify-center hover:bg-accent transition hover:text-xl"
               >
-                <FaLinkedin />
+                <FaLinkedin className="transition-all" />
               </a>
-            </div>
+            </div> */}
           </div>
 
-          <p className="text-base md:text-lg leading-relaxed text-foreground/90">
+          <p
+            className={`text-base md:text-lg leading-relaxed text-foreground/90 ${fonts.comfortaa.className}`}
+          >
             I am a 15-year-old full-stack web developer, Currently learning and
             improving every day.
           </p>
@@ -74,16 +80,23 @@ export default function Home() {
       </section>
 
       <section className="mt-20 w-full max-w-3xl flex flex-col gap-14">
-        <div className="w-full rounded-xl p-6 flex flex-col gap-6">
-          <h2 className="text-2xl font-semibold tracking-tight">🚀 Skills</h2>
+        <div className="rounded-xl flex flex-col gap-6">
+          <h2
+            className={`text-2xl font-semibold tracking-tight ${fonts.geistMono.className} flex flex-row gap-3 place-items-center-safe group`}
+          >
+            <IoIosCodeWorking className="" />{" "}
+            Skills
+          </h2>
 
           <SkillsContent />
         </div>
 
         <div className="w-full rounded-xl p-6 flex flex-col gap-20">
-          <h1 className="text-2xl font-semibold tracking-tight">💼 Projects</h1>
+          <h1 className={`text-2xl font-semibold tracking-tight flex flex-row place-items-center-safe gap-3 ${fonts.geistMono.className}`}><FolderKanban /> Projects</h1>
 
-          <ProjectsContent />
+          <div className="">
+            <ProjectsContent />
+          </div>
         </div>
       </section>
 
