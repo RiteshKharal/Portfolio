@@ -80,11 +80,12 @@ export default function Home() {
       </section>
 
       <section className="mt-20 w-full max-w-3xl flex flex-col gap-14">
-        <div className="rounded-xl flex flex-col gap-6">
+        <div className="w-full rounded-xl flex flex-col gap-6">
+
           <h2
-            className={`text-2xl font-semibold tracking-tight ${fonts.geistMono.className} flex flex-row gap-3 place-items-center-safe group`}
+            className={`text-2xl font-semibold tracking-tight ${fonts.geistMono.className} flex flex-row gap-3 place-items-center-safe`}
           >
-            <IoIosCodeWorking className="" />{" "}
+            <IoIosCodeWorking />
             Skills
           </h2>
 
