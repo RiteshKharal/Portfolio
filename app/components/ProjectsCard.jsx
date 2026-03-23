@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaGithub, FaArrowRight } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import * as font from "@/app/fonts";
+import { GetReadme } from "../backend/GetReadme";
 
 export const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -94,6 +95,7 @@ ProjectCard.propTypes = {
 export function ProjectModal({ project, onClose }) {
   const [mounted, setMounted] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [readme, setReadme] = useState("Fetching github readme...");
 
   const handleClose = () => {
     setClosing(true);
@@ -107,10 +109,19 @@ export function ProjectModal({ project, onClose }) {
   }, []);
 
   useEffect(() => {
+    const fetchreadme = async () => {
+      const red = await GetReadme(project.github);
+      setReadme(red);
+    };
+    fetchreadme();
+  }, [project.github]);
+
+  useEffect(() => {
     const handler = (e) => {
       if (e.key === "Escape") handleClose();
     };
     window.addEventListener("keydown", handler);
+
     return () => window.removeEventListener("keydown", handler);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -180,7 +191,7 @@ export function ProjectModal({ project, onClose }) {
             shadow-xl
             bg-zinc-100 dark:bg-zinc-800
             transition-transform duration-500
-            hover:scale-[1.02]
+            hover:scale-[1.02] cursor-pointer
           "
           >
             {project.image ? (
@@ -190,10 +201,13 @@ export function ProjectModal({ project, onClose }) {
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
-                className="object-cover transition-transform duration-700 hover:scale-110"
+                className="object-cover transition-transform duration-700 hover:scale-110 cursor-pointer"
+                onClick={() => {
+                  window.location = project.live;
+                }}
               />
             ) : (
-              <span className="text-2xl font-serif text-gray-500 dark:text-gray-400">
+              <span className="text-2xl font-serif text-gray-500 dark:text-gray-400 curosr-pointer" onClick={()=>{window.location = project.live}}>
                 IMAGE
               </span>
             )}
@@ -247,8 +261,16 @@ export function ProjectModal({ project, onClose }) {
             )}
           </div>
 
-          <div className="text-center space-y-6 text-foreground leading-relaxed w-[70%] text-lg">
-            {project.LongDesc}
+          <div className="text-center space-y-6 text-foreground leading-relaxed w-[70%] text-lg relative">
+            <span
+              className={`text-left block ${font.exo2.className} opacity-30 mb-10 tracking-wide font-semibold`}
+            >
+              <i>Github Repository readme</i>
+            </span>
+            <div
+              dangerouslySetInnerHTML={{ __html: readme }}
+              className={`whitespace-pre-line ${font.comfortaa.className} transition-all transform`}
+            ></div>
           </div>
         </div>
       </div>

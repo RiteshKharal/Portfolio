@@ -2,7 +2,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Ubuntu, Nunito } from 'next/font/google';
 
 const ubuntu = Ubuntu({
@@ -17,15 +17,15 @@ const nunito = Nunito({
   variable: '--font-nunito',
 });
 
-type CompoenentTypes = {
-  title: string;
+type ComponentTypes = {
+  title: string | React.ReactNode;
   options: {
     OptionName: string,
     OptionCallBack: ()=> void ,
   }[];
 };
 
-export default function Component({ title, options }: CompoenentTypes) {
+export default function Component({ title, options }: ComponentTypes) {
   const [filterOpen, setFilterOpen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 

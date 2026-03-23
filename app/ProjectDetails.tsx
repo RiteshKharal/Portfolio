@@ -21,7 +21,7 @@ export const ProjectsDetails = [
 
     live: "https://riteshkharal.vercel.app/",
 
-    github: "https://github.com/RiteshKharal/Portfolio-Files",
+    github: "https://github.com/RiteshKharal/Portfolio",
   },
 
   {

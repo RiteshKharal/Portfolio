@@ -9,7 +9,7 @@ import { IoIosMail } from "react-icons/io";
 import Loader from "./components/Loading.jsx";
 import MouseFollower from "./components/MouseFollower.tsx";
 import NavigationDropDown from "./components/NavigationDropDown.tsx";
-import { redirect } from "react-router-dom";
+
 
 const smooch = Smooch_Sans({
   subsets: ["latin"],
