@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import ThemeToggle from "./components/ThemeToggle.tsx";
-import FallingFlames from "./components/BackgroundAnimation.jsx";
+import BackgroundAnimation from "./components/BackgroundAnimation.jsx";
 import { Smooch_Sans } from "next/font/google";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import Loader from "./components/Loading.jsx";
 import MouseFollower from "./components/MouseFollower.tsx";
 import NavigationDropDown from "./components/NavigationDropDown.tsx";
-
 
 const smooch = Smooch_Sans({
   subsets: ["latin"],
@@ -19,9 +18,9 @@ const smooch = Smooch_Sans({
 export const metadata: Metadata = {
   title: "Ritesh Kharal",
   description: "Portfolio of Ritesh Kharal — Developer, Learner, Builder",
-  icons:{
-    icon:'/PortfolioICON.ico'
-  }
+  icons: {
+    icon: "/PortfolioICON.ico",
+  },
 };
 
 export const viewport = {
@@ -36,17 +35,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-
-      </head>
+      <head></head>
       <body className="bg-background text-foreground antialiased overflow-x-hidden">
         <NextThemesProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
         >
-          <FallingFlames />
-          <MouseFollower />
+          <BackgroundAnimation />
+          <MouseFollower/>
 
           <header className="flex pt-5 text-lg font-medium pl-10 pr-10">
             <nav className="flex gap-6 items-center justify-between w-full ">

@@ -1,6 +1,5 @@
 "use server";
 
-import { error } from "console";
 import { marked } from "marked";
 import { ProjectsDetails } from "../ProjectDetails";
 

@@ -44,10 +44,10 @@ export default function Component({ title, options }: ComponentTypes) {
   }, []);
 
   return (
-    <div className="w-fit h-fit">
+    <div className="w-fit h-fit text-center content-center">
       <div
         className={`
-        ${ubuntu.className} flex flex-wrap gap-4 rounded-2xl p-2
+        ${ubuntu.className} flex flex-row text-center gap-4 rounded-2xl 
         overflow-visible z-10
       `}
       >
@@ -57,7 +57,7 @@ export default function Component({ title, options }: ComponentTypes) {
             className={`
             ${nunito.className}
             flex items-center gap-2
-            px-4 py-2 rounded-lg
+            px-4 py-2 rounded-lg text-center content-center place-content-center
             border border-[hsla(240_5.9%_47%/0.4)] dark:border-[hsla(240_3.7%_20.9%/0.4)]
             bg-[hsla(0_0%_100%/0.6)] dark:bg-[hsla(240_10%_3%/0.6)]
             hover:bg-[hsla(240_10%_3.9%/0.1)] dark:hover:bg-[hsla(0_0%_98%/0.1)]
@@ -65,13 +65,13 @@ export default function Component({ title, options }: ComponentTypes) {
           `}
           >
             <span
-              className={
+              className={`text-center` +
                 filterOpen
                   ? "text-[hsla(240_10%_3.9%/0.8)] dark:text-[hsla(0_0%_98%/0.8)]"
                   : "text-[hsla(240_10%_3.9%/0.6)] dark:text-[hsla(0_0%_98%/0.6)]"
               }
             >
-              <span className="text-[hsla(240_10%_3.9%/0.9)] dark:text-[hsla(0_0%_98%/0.9)] font-bold mr-3">
+              <span className="text-[hsla(240_10%_3.9%/0.9)] dark:text-[hsla(0_0%_98%/0.9)] font-bold mr-3 text-center">
                 {title}
               </span>
             </span>
