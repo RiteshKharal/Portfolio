@@ -42,6 +42,12 @@ export default function MouseGradient() {
 	}, []);
 
 	const finalShape = `${shape[0]}% ${shape[1]}% ${shape[2]}% ${shape[3]}% / ${shape[4]}% ${shape[5]}% ${shape[6]}% ${shape[7]}%`;
+	const followerColor =
+		typeof document !== "undefined" &&
+		document.documentElement.classList.contains("dark")
+			? "hsla(255 100% 100% / 0.37)"
+			: "hsla(250 40% 24% / 0.8)";
+
 
 	return (
 		<div className="h-full w-full fixed inset-0 blur-[3.5rem] pointer-events-none transition-all duration-200 z-[-100] ">
@@ -53,7 +59,7 @@ export default function MouseGradient() {
 					position: "absolute",
 					top: mouse.y - size,
 					left: mouse.x - size,
-					background: `radial-gradient(circle ${size}px at ${size}px ${size}px, var(--foreground) 40%,var(--background) 10%, transparent 50%)`,
+					background: `radial-gradient(circle ${size}px at ${size}px ${size}px, ${followerColor} 40%,var(--background) 70%, transparent 90%)`,
 				}}
 				className="transition-transform z-[-99] MouseFollower"
 			/>

@@ -3,43 +3,43 @@
 import { useEffect, useState } from "react";
 
 export default function BackgroundAnimation({ amount = 20 }) {
-  const [dots, setDots] = useState([]);
+	const [dots, setDots] = useState([]);
 
-  useEffect(() => {
-    const arr = [];
-    for (let i = 0; i < amount; i++) {
-      arr.push({
-        id: i,
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        size: Math.random() * 2.6 + 0.6,
-        delay: Math.random() * 6,
-        duration: Math.random() * 6 + 6,
-        horizontalDrift: (Math.random() - 0.5) * 40,
-      });
-    }
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setDots(arr);
-  }, [amount]);
+	useEffect(() => {
+		const arr = [];
+		for (let i = 0; i < amount; i++) {
+			arr.push({
+				id: i,
+				left: Math.random() * 100,
+				top: Math.random() * 100,
+				size: Math.random() * 2.6 + 0.6,
+				delay: Math.random() * 6,
+				duration: Math.random() * 6 + 6,
+				horizontalDrift: (Math.random() - 0.5) * 40,
+			});
+		}
+		// eslint-disable-next-line react-hooks/set-state-in-effect
+		setDots(arr);
+	}, [amount]);
 
-  useEffect(() => {
-    const setDocHeight = () => {
-      document.documentElement.style.setProperty(
-        "--DocumentHeight",
-        document.body.scrollHeight + "px"
-      );
-    };
+	useEffect(() => {
+		const setDocHeight = () => {
+			document.documentElement.style.setProperty(
+				"--DocumentHeight",
+				document.body.scrollHeight + "px",
+			);
+		};
 
-    setDocHeight();
-    window.addEventListener("resize", setDocHeight);
+		setDocHeight();
+		window.addEventListener("resize", setDocHeight);
 
-    return () => window.removeEventListener("resize", setDocHeight);
-  }, []);
+		return () => window.removeEventListener("resize", setDocHeight);
+	}, []);
 
-  return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[-1]">
-      <div className="relative w-full h-full">
-        <style>{`
+	return (
+		<div className="fixed inset-0 pointer-events-none overflow-hidden z-[-1]">
+			<div className="relative w-full h-full">
+				<style jsx>{`
         :root {
           --DocumentHeight: 0px;
         }
@@ -72,7 +72,7 @@ export default function BackgroundAnimation({ amount = 20 }) {
           background: white;
           filter: blur(1px);
           will-change: transform, box-shadow;
-          transition: all 0.2s
+          transition: all 0.2s;
         }
 
         .dark .dots {
@@ -80,21 +80,20 @@ export default function BackgroundAnimation({ amount = 20 }) {
         }
       `}</style>
 
-        {dots.map((d) => (
-          <div
-            key={d.id}
-            className="dots"
-            style={{
-              left: `${d.left}%`,
-              top: `${d.top}%`,
-              width: `${d.size}px`,
-              height: `${d.size}px`,
-              "--horizontalDrift": `${d.horizontalDrift}px`,
-              animation: `BgAnim ${d.duration}s ease-in-out ${d.delay}s infinite alternate`,
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
+				{dots.map((d) => (
+					<div
+						key={d.id}
+						className="dots"
+						style={{
+							left: `${d.left}%`,
+							top: `${d.top}%`,
+							width: `${d.size}px`,
+							height: `${d.size}px`,
+							animation: `BgAnim ${d.duration}s ease-in-out ${d.delay}s infinite alternate`,
+						}}
+					/>
+				))}
+			</div>
+		</div>
+	);
 }
