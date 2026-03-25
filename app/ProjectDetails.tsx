@@ -4,17 +4,6 @@ export const ProjectsDetails = [
 
     description: "A clean, minimal portfolio with a modern UI.",
 
-    LongDesc: (
-      <section>
-        A personal space where I showcase my projects, ideas, and ongoing progress.
-        <br /><br />
-        Designed with a focus on clarity and simplicity, the portfolio highlights my work
-        while reflecting my approach to clean UI and structured development.
-        <br /><br />
-        It serves both as a presentation of my skills and a timeline of how I’m evolving as a developer.
-      </section>
-    ),
-
     image: "/Portfolioimg.png",
 
     tech: ["React", "Tailwind", "Next.js"],
@@ -28,17 +17,6 @@ export const ProjectsDetails = [
     title: "TudorTODO",
 
     description: "A customizable minimal to-do app.",
-
-    LongDesc: (
-      <section>
-        A minimal and efficient task management app designed to keep daily work organized.
-        <br /><br />
-        It allows users to securely store and manage tasks with a clean interface and smooth experience.
-        <br /><br />
-        Built using Prisma, Next.js, Node.js, and React, the focus is on simplicity,
-        performance, and practical usability.
-      </section>
-    ),
 
     image: "/TudorTODO.png",
 

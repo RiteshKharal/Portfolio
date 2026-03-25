@@ -40,45 +40,45 @@ export default function BackgroundAnimation({ amount = 20 }) {
 		<div className="fixed inset-0 pointer-events-none overflow-hidden z-[-1]">
 			<div className="relative w-full h-full">
 				<style jsx>{`
-        :root {
-          --DocumentHeight: 0px;
-        }
+					:root {
+						--DocumentHeight: 0px;
+					}
 
-        @keyframes BgAnim {
-          0% {
-            box-shadow: 0 0 12px 4px hsla(255 100% 80% / 0.4);
-          }
+					@keyframes BgAnim {
+						0% {
+							box-shadow: 0 0 12px 4px hsla(255 100% 80% / 0.4);
+						}
 
-          25% {
-            box-shadow: 0 0 20px 6px hsla(255 40% 30% / 0.5);
-          }
+						25% {
+							box-shadow: 0 0 20px 6px hsla(255 40% 30% / 0.5);
+						}
 
-          50% {
-            box-shadow: 0 0 28px 10px hsla(255 100% 90% / 0.6);
-          }
+						50% {
+							box-shadow: 0 0 28px 10px hsla(255 100% 90% / 0.6);
+						}
 
-          75% {
-            box-shadow: 0 0 20px 6px hsla(25 100% 60% / 0.5);
-          }
+						75% {
+							box-shadow: 0 0 20px 6px hsla(25 100% 60% / 0.5);
+						}
 
-          100% {
-            box-shadow: 0 0 12px 4px hsla(25 100% 40% / 0.4);
-          }
-        }
+						100% {
+							box-shadow: 0 0 12px 4px hsla(25 100% 40% / 0.4);
+						}
+					}
 
-        .dots {
-          position: absolute;
-          border-radius: 50%;
-          background: white;
-          filter: blur(1px);
-          will-change: transform, box-shadow;
-          transition: all 0.2s;
-        }
+					.dots {
+						position: absolute;
+						border-radius: 50%;
+						background: white;
+						filter: blur(1px);
+						will-change: transform, box-shadow;
+						transition: all 0.2s;
+					}
 
-        .dark .dots {
-          background: rgba(255, 255, 255, 0.6);
-        }
-      `}</style>
+					.dark .dots {
+						background: rgba(255, 255, 255, 0.6);
+					}
+				`}</style>
 
 				{dots.map((d) => (
 					<div

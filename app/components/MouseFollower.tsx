@@ -1,16 +1,24 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
+
 
 export default function MouseGradient() {
 	const [mouse, setMouse] = useState({ x: 0, y: 0 });
 	const [shape, setShape] = useState([50, 50, 50, 50, 50, 50, 50, 50]);
 	const [size, setSize] = useState(30);
-	// console.log(document.getElementsByClassName('DotPoss'))
+	const [mounted, setMounted] = useState(false);
+	const { resolvedTheme } = useTheme();
 
 	useEffect(() => {
 		Colliding();
 	}, [mouse]);
+
+	useEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
+		setMounted(true);
+	}, []);
 
 	useEffect(() => {
 		const handleMouse = (e: MouseEvent) =>
@@ -43,11 +51,9 @@ export default function MouseGradient() {
 
 	const finalShape = `${shape[0]}% ${shape[1]}% ${shape[2]}% ${shape[3]}% / ${shape[4]}% ${shape[5]}% ${shape[6]}% ${shape[7]}%`;
 	const followerColor =
-		typeof document !== "undefined" &&
-		document.documentElement.classList.contains("dark")
+		mounted && resolvedTheme === "dark"
 			? "hsla(255 100% 100% / 0.37)"
 			: "hsla(250 40% 24% / 0.8)";
-
 
 	return (
 		<div className="h-full w-full fixed inset-0 blur-[3.5rem] pointer-events-none transition-all duration-200 z-[-100] ">
@@ -100,11 +106,22 @@ function Colliding() {
 			if (isColliding) {
 				dot.style.transform = `translate(${nx}px, ${ny}px)`;
 			}
-			
-      if(DotPos.left<10){ dot.style.left= '10px'}
-      if(DotPos.right>document.body.scrollWidth){ dot.style.left= `${document.body.scrollWidth - 10}px`}
-      if(DotPos.top<0){ dot.style.top= '10px'}
-      if(DotPos.bottom>document.body.scrollHeight){ dot.style.bottom = `${document.body.scrollHeight - 10}px`}
+
+			if (DotPos.left < 10) {
+				dot.style.left = `${offset}px`;
+			}
+
+			if (DotPos.right > document.body.scrollWidth) {
+				dot.style.left = `${document.body.scrollWidth - offset}px`;
+			}
+
+			if (DotPos.top < 0) {
+				dot.style.top = `${offset}px`;
+			}
+
+			if (DotPos.bottom > document.body.scrollHeight) {
+				dot.style.bottom = `${document.body.scrollHeight - offset}px`;
+			}
 		});
 	});
 }

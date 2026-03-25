@@ -261,11 +261,11 @@ export function ProjectModal({ project, onClose }) {
             )}
           </div>
 
-          <div className="text-center space-y-6 text-foreground leading-relaxed w-[70%] text-lg relative">
+          <div className=" space-y-6 text-foreground leading-relaxed w-[70%] text-lg relative">
             <span
-              className={`text-left block ${font.exo2.className} opacity-30 mb-10 tracking-wide font-semibold`}
+              className={`text-left block ${font.geistMono.className} opacity-30 mb-10 tracking-tight font-semibold text-[0.9rem] underline underline-offset-3`}
             >
-              <i>Github Repository readme</i>
+              Github Repository readme
             </span>
             <div
               dangerouslySetInnerHTML={{ __html: readme }}
