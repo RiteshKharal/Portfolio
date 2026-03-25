@@ -96,9 +96,9 @@ function Colliding() {
 			}
 			
       if(DotPos.left<10){ dot.style.left= '10px'}
-      if(DotPos.right>document.body.scrollWidth){ dot.style.right= '10px'}
-      if(DotPos.top<0){ dot.style.top= '0px'}
-      if(DotPos.bottom>document.body.scrollHeight){ dot.style.bottom = `${document.body.scrollHeight}px`}
+      if(DotPos.right>document.body.scrollWidth){ dot.style.left= `${document.body.scrollWidth - 10}px`}
+      if(DotPos.top<0){ dot.style.top= '10px'}
+      if(DotPos.bottom>document.body.scrollHeight){ dot.style.bottom = `${document.body.scrollHeight - 10}px`}
 		});
 	});
 }
