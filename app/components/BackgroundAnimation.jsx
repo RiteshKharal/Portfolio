@@ -15,7 +15,7 @@ export default function BackgroundAnimation({ amount = 20 }) {
         size: Math.random() * 2.6 + 0.6,
         delay: Math.random() * 6,
         duration: Math.random() * 6 + 6,
-        horizontalDrift: (Math.random() - 0.5) * 20,
+        horizontalDrift: (Math.random() - 0.5) * 40,
       });
     }
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -26,7 +26,7 @@ export default function BackgroundAnimation({ amount = 20 }) {
     const setDocHeight = () => {
       document.documentElement.style.setProperty(
         "--DocumentHeight",
-        document.body.scrollHeight + "px",
+        document.body.scrollHeight + "px"
       );
     };
 
@@ -37,7 +37,7 @@ export default function BackgroundAnimation({ amount = 20 }) {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[-1] ">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-[-1]">
       <div className="relative w-full h-full">
         <style>{`
         :root {
@@ -46,51 +46,37 @@ export default function BackgroundAnimation({ amount = 20 }) {
 
         @keyframes BgAnim {
           0% {
-            transform: translateY(0vh) translateX(0px);
-            opacity: 0.5;
-            filter: blur(2px);
+            box-shadow: 0 0 12px 4px hsla(255 100% 80% / 0.4);
           }
+
           25% {
-            transform: translateY(-1vh) translateX(5px);
-            opacity: 1;
-            filter: blur(2px);
+            box-shadow: 0 0 20px 6px hsla(255 40% 30% / 0.5);
           }
+
           50% {
-            transform: translateY(0vh) translateX(0px);
-            opacity: 0.8;
-            filter: blur(2px);
+            box-shadow: 0 0 28px 10px hsla(255 100% 90% / 0.6);
           }
+
           75% {
-            transform: translateY(1vh) translateX(-5px);
-            opacity: 1;
-            filter: blur(2px);
+            box-shadow: 0 0 20px 6px hsla(25 100% 60% / 0.5);
           }
+
           100% {
-            transform: translateY(0vh) translateX(0px);
-            opacity: 0.5;
-            filter: blur(2px);
+            box-shadow: 0 0 12px 4px hsla(25 100% 40% / 0.4);
           }
         }
 
         .dots {
           position: absolute;
           border-radius: 50%;
-          background: rgba(60, 60, 60, 0.9); 
+          background: white;
           filter: blur(1px);
-          box-shadow:
-            0 0 12px 4px rgba(60, 60, 60, 0.7),
-            0 0 24px 10px rgba(255, 180, 80, 0);
-
-          transition: all 0.2s ease  ;
+          will-change: transform, box-shadow;
+          transition: all 0.2s
         }
 
         .dark .dots {
-          background: rgba(255, 255, 255, 0.5);
-
-          box-shadow:
-            0 0 12px 4px rgba(255, 255, 255, 0.4),
-            0 0 26px 12px rgba(255, 255, 255, 0.2);
-
+          background: rgba(255, 255, 255, 0.6);
         }
       `}</style>
 
@@ -104,7 +90,7 @@ export default function BackgroundAnimation({ amount = 20 }) {
               width: `${d.size}px`,
               height: `${d.size}px`,
               "--horizontalDrift": `${d.horizontalDrift}px`,
-              // animation: `BgAnim ${d.duration}s ease-in-out ${d.delay}s infinite`,
+              animation: `BgAnim ${d.duration}s ease-in-out ${d.delay}s infinite alternate`,
             }}
           />
         ))}
