@@ -8,7 +8,7 @@ export default function NavigationDropDown() {
   return (
     <Component
       title={
-        <span className="flex flex-row gap-3 h-1 text-center place-items-center-safe justify-center self-center">
+        <span className="flex flex-row gap-3 h-0 text-center place-items-center-safe justify-center self-center p-0 invisible md:visible ">
           <FaStar /> Modes
         </span>
       }

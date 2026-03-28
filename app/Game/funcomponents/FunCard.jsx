@@ -51,7 +51,7 @@ export default function FunProjectCard({ item, onClose }) {
       className={`
         fixed inset-0 z-50
         flex items-center justify-center
-
+        overflow-y-scroll
         backdrop-blur-sm
 
         transition-all duration-300 ease-out
@@ -111,7 +111,7 @@ export default function FunProjectCard({ item, onClose }) {
 }
 
 
-
+// Not used currently, but can be added as a fun close button in the future
 function CloseButton({ onClose }) {
   const [eating, setEating] = useState(false);
   const [mouth, setMouth] = useState(0);
@@ -214,7 +214,7 @@ function CloseButton({ onClose }) {
       </div>} */}
     </div>
   );
-} // Not used currently, but can be added as a fun close button in the future
+} 
 
 
 
@@ -240,6 +240,7 @@ function ProjectCards() {
               <Image
                 src={project.image}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 alt={project.title}
                 className="object-cover transition duration-500 group-hover:scale-105"
               />
