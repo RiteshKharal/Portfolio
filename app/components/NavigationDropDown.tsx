@@ -6,9 +6,10 @@ import { FaStar } from "react-icons/fa";
 export default function NavigationDropDown() {
 
   return (
-    <Component
+    <div className=" invisible md:visible ">
+      <Component
       title={
-        <span className="flex flex-row gap-3 h-0 text-center place-items-center-safe justify-center self-center p-0 invisible md:visible ">
+        <span className="flex flex-row gap-3 h-0 text-center place-items-center-safe justify-center self-center p-0">
           <FaStar /> Modes
         </span>
       }
@@ -27,5 +28,6 @@ export default function NavigationDropDown() {
         },
       ]}
     />
+    </div>
   );
 }

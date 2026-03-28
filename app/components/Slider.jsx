@@ -116,9 +116,9 @@ export function ProjectsContent() {
         />
       ) : null}
 
-      <div className="grid gap-6 justify-center grid-cols-2 items-center grid-flow-row">
+      <div className="grid gap-6 justify-center grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center grid-flow-row">
         {ProjectsDetails.slice(0, showTill).map((project, i) => (
-          <div key={i} className="row-span-10">
+          <div key={i} className="">
             <ProjectCard
             
             title={project.title}
