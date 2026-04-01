@@ -15,7 +15,15 @@ export const josefin = Josefin_Sans({
 	variable: "--font-josefin",
 });
 
-export function ProjectCard({ title, description, image, tech = [], onOpen }) {
+export function ProjectCard({
+	title,
+	description,
+	image,
+	tech = [],
+	onOpen,
+	live,
+}) {
+	const [imgError, setImgError] = useState(false);
 	return (
 		<button
 			type="button"
@@ -24,12 +32,26 @@ export function ProjectCard({ title, description, image, tech = [], onOpen }) {
 		>
 			<div className="relative w-full h-64 overflow-hidden flex items-center justify-center">
 				<div className="absolute inset-0 p-0 group-hover:p-2 transition-all duration-300">
-					{image && (
+					{live && !imgError && (
+						<Image
+							src={`https://api.microlink.io/?url=${encodeURIComponent(live)}&screenshot=true&meta=false&embed=screenshot.url`}
+							alt="Project Image"
+							fill
+							className="object-cover"
+							onError={() => {
+								setImgError(true);
+							}}
+							sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+							priority
+						/>
+					)}
+
+					{image && imgError && (
 						<Image
 							src={image}
 							alt={title}
 							fill
-							sizes="(max-width: 768px) 100vw, 50vw"
+							sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 							className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
 							priority
 						/>
@@ -96,6 +118,7 @@ export function ProjectModal({ project, onClose }) {
 	const [mounted, setMounted] = useState(false);
 	const [closing, setClosing] = useState(false);
 	const [readme, setReadme] = useState("Fetching github readme...");
+	const [imgError, setImgError] = useState(false);
 
 	const handleClose = () => {
 		setClosing(true);
@@ -183,39 +206,48 @@ export function ProjectModal({ project, onClose }) {
 				<div className="flex flex-col items-center px-12 py-8 gap-12">
 					<div
 						className="
-            relative w-[50%] max-w-4xl
-            h-[40vh]
-            rounded-2xl
-            flex items-center justify-center
-            overflow-hidden
-            border border-border
-            shadow-xl
-            bg-zinc-100 dark:bg-zinc-800
-            transition-transform duration-500
-            hover:scale-[1.02] cursor-pointer
-          "
+							relative w-[50%] max-w-4xl
+							h-[40vh]
+							rounded-2xl
+							flex items-center justify-center
+							overflow-hidden
+							border border-border
+							shadow-xl
+							bg-zinc-100 dark:bg-zinc-800
+							transition-transform duration-500
+							hover:scale-[1.02] cursor-pointer
+						"
+						onClick={() => {
+							window.location.href = project.live;
+						}}
 					>
-						{project.image ? (
+						{project.live && !imgError && (
+							<>
+								<Image
+									src={`https://api.microlink.io/?url=${encodeURIComponent(project.live)}&screenshot=true&meta=false&embed=screenshot.url`}
+									alt="Project Image"
+									fill
+									className="object-cover"
+									onError={() => {
+										setImgError(true);
+									}}
+									sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+									priority
+								/>
+
+								<span className={`absolute top-2 left-3  ${font.comfortaa.className} text-l font-bold text-foreground [-webkit-text-stroke:1px_background] opacity-40`}>Microlink API image</span>
+							</>
+						)}
+
+						{project.image && imgError && (
 							<Image
 								src={project.image}
 								alt={project.title}
 								fill
-								sizes="(max-width: 768px) 100vw, 50vw"
+								sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+								className="object-cover rounded-lg transition-transform duration-300 group-hover:scale-[1.05]"
 								priority
-								className="object-cover transition-transform duration-700 hover:scale-110 cursor-pointer"
-								onClick={() => {
-									window.location = project.live;
-								}}
 							/>
-						) : (
-							<span
-								className="text-2xl font-serif text-gray-500 dark:text-gray-400 curosr-pointer"
-								onClick={() => {
-									window.location = project.live;
-								}}
-							>
-								IMAGE
-							</span>
 						)}
 					</div>
 
@@ -226,17 +258,17 @@ export function ProjectModal({ project, onClose }) {
 								target="_blank"
 								rel="noopener noreferrer"
 								className="
-                    flex items-center gap-2
-                    px-8 py-3
-                    rounded-xl
-                    bg-black text-white
-                    dark:bg-white dark:text-black
-                    font-semibold
-                    shadow-lg
-                    transition-all
-                    hover:-translate-y-1 hover:shadow-xl hover:opacity-90
-                    active:scale-95
-                  "
+										flex items-center gap-2
+										px-8 py-3
+										rounded-xl
+										bg-black text-white
+										dark:bg-white dark:text-black
+										font-semibold
+										shadow-lg
+										transition-all
+										hover:-translate-y-1 hover:shadow-xl hover:opacity-90
+										active:scale-95
+									"
 							>
 								<HiOutlineExternalLink />
 								Live Demo
@@ -273,7 +305,7 @@ export function ProjectModal({ project, onClose }) {
 						>
 							Github Repository readme
 						</span>
-            
+
 						<div
 							dangerouslySetInnerHTML={{ __html: readme }}
 							className={`whitespace-pre-line ${font.sourceSansPro.className} transition-all transform`}

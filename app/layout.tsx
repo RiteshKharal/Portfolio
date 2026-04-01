@@ -16,8 +16,71 @@ const smooch = Smooch_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Ritesh Kharal",
-  description: "Portfolio of Ritesh Kharal — Developer, Learner, Builder",
+  title: {
+    default: "Ritesh Kharal | Full-Stack Web Developer",
+    template: "%s | Ritesh Kharal",
+  },
+  description:
+    "Portfolio of Ritesh Kharal, a full-stack web developer from Lumbini, Nepal. Projects, skills, and contact info.",
+  keywords: [
+    "Ritesh Kharal",
+    "portfolio",
+    "full-stack web developer",
+    "web developer",
+    "frontend developer",
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Node.js",
+    "UI/UX",
+    "Figma",
+    "Git",
+    "Portfolio Website",
+    "TudorTODO",
+    "CSSStorage",
+    "Lumbini",
+    "Nepal",
+  ],
+  authors: [{ name: "Ritesh Kharal", url: "https://riteshkharal.vercel.app" }],
+  creator: "Ritesh Kharal",
+  publisher: "Ritesh Kharal",
+  metadataBase: new URL("https://riteshkharal.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Ritesh Kharal | Full-Stack Web Developer",
+    description:
+      "Portfolio of Ritesh Kharal, a full-stack web developer from Lumbini, Nepal. Projects, skills, and contact info.",
+    url: "https://riteshkharal.vercel.app",
+    siteName: "Ritesh Kharal",
+    images: [
+      {
+        url: "/Portfolioimg.png",
+        alt: "Ritesh Kharal portfolio preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ritesh Kharal | Full-Stack Web Developer",
+    description:
+      "Portfolio of Ritesh Kharal, a full-stack web developer from Lumbini, Nepal. Projects, skills, and contact info.",
+    images: ["/Portfolioimg.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: "/PortfolioICON.ico",
   },

@@ -11,8 +11,6 @@ import { IoIosCodeWorking } from "react-icons/io";
 import { FolderKanban } from "lucide-react";
 
 
-// TO Make: ADD a slight gradient follow the user's cursor for a cool effect
-
 export default function Home() {
   return (
     <div className="flex flex-col items-center px-6 scroll-smooth">

@@ -126,6 +126,7 @@ export function ProjectsContent() {
             image={project.image}
             tech={project.tech}
             onOpen={() => setOpenProject(project)}
+            live={project.live}
           />
           </div>
         ))}
