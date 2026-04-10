@@ -89,7 +89,7 @@ export default function BackgroundAnimation({ amount = 20 }) {
 							top: `${d.top}%`,
 							width: `${d.size}px`,
 							height: `${d.size}px`,
-							animation: `BgAnim ${d.duration}s ease-in-out ${d.delay}s infinite alternate`,
+							// animation: `BgAnim ${d.duration}s ease-in-out ${d.delay}s infinite alternate`,
 						}}
 					/>
 				))}

@@ -1,3 +1,20 @@
+
+//  -- TEMPLATE -- 
+// {
+//     title: "",
+
+//     description: "",
+
+//     image: "/",
+
+//     tech: ["React", "Tailwind", "Next.js"],
+
+//     live: "",
+
+//     github: "https://github.com/RiteshKharal/",
+//   },
+
+
 export const ProjectsDetails = [
   {
     title: "Portfolio Website",
@@ -32,17 +49,6 @@ export const ProjectsDetails = [
 
     description: "A place where I store my UI/UX elements.",
 
-    LongDesc: (
-      <section>
-        A collection of reusable UI/UX components and design elements built for quick access and reuse.
-        <br /><br />
-        This project acts as a personal library where I experiment with layouts, styles,
-        and interface ideas that can be applied across different projects.
-        <br /><br />
-        Built with Next.js, Node.js, and React, it emphasizes simplicity, accessibility,
-        and efficient design workflows.
-      </section>
-    ),
 
     image: "/CSSSTORAGE.png",
 
@@ -51,5 +57,18 @@ export const ProjectsDetails = [
     live: "https://cssstorage.vercel.app/",
 
     github: "https://github.com/RiteshKharal/cssstorage",
+  },
+  {
+    title: "ColorChooser",
+
+    description: "A webstie made to choose the best colors.",
+
+    image: "/",
+
+    tech: ["React", "Tailwind", "Next.js"],
+
+    live: "https://ColorChooser.vercel.app",
+
+    github: "https://github.com/RiteshKharal/ColorChooser",
   },
 ];

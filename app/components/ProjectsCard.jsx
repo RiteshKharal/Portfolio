@@ -153,46 +153,44 @@ export function ProjectModal({ project, onClose }) {
 		<div
 			onClick={handleClose}
 			className={`
-        fixed inset-0 z-50
-        flex items-center justify-center
+					fixed inset-0 z-50
+					flex items-center justify-center
 
-        bg-background/70
-        backdrop-blur-sm
+					bg-background/70
+					backdrop-blur-sm
 
-        transition-all duration-300 ease-out
-        ${mounted && !closing ? "opacity-100" : "opacity-0"}
-      `}
+					transition-all duration-300 ease-out
+					${mounted && !closing ? "opacity-100" : "opacity-0"}
+				`}
 		>
 			<div
 				onClick={(e) => e.stopPropagation()}
 				className={`
-          w-[80vw] max-w-5xl
-          max-h-[90vh]
-          rounded-3xl
-          shadow-2xl
-          flex flex-col
-          overflow-scroll
-          relative  
+					w-[80vw] max-w-5xl
+					max-h-[90vh]
+					rounded-3xl
+					shadow-2xl
+					flex flex-col
+					overflow-scroll
+					relative  
 
-          bg-card/90
-          backdrop-blur-xl
-          border border-border
+					bg-card/90
+					backdrop-blur-xl
+					border border-border
 
-          transform transition-all duration-300 ease-out
-          ${
-						mounted && !closing ? "opacity-100 scale-100" : "opacity-0 scale-95"
-					}
-        `}
+					transform transition-all duration-300 ease-out
+					${mounted && !closing ? "opacity-100 scale-100" : "opacity-0 scale-95"}
+					`}
 			>
 				<div
 					className="
-          flex items-center gap-3
-          px-10 py-4
-          text-foreground/80
-          hover:text-foreground/50
-          transition-all duration-300
-          group sticky top-5
-        "
+							flex items-center gap-3
+							px-10 py-4
+							text-foreground/80
+							hover:text-foreground/50
+							transition-all duration-300
+							group sticky top-5
+							"
 				>
 					<button
 						onClick={handleClose}
@@ -218,7 +216,7 @@ export function ProjectModal({ project, onClose }) {
 							hover:scale-[1.02] cursor-pointer
 						"
 						onClick={() => {
-							window.location.href = project.live;
+							window.open(project.live, "_blank")
 						}}
 					>
 						{project.live && !imgError && (
@@ -235,7 +233,11 @@ export function ProjectModal({ project, onClose }) {
 									priority
 								/>
 
-								<span className={`absolute top-2 left-3  ${font.comfortaa.className} text-l font-bold text-foreground [-webkit-text-stroke:1px_background] opacity-40`}>Microlink API image</span>
+								<span
+									className={`absolute top-2 left-3  ${font.comfortaa.className} text-l font-bold text-foreground [-webkit-text-stroke:1px_background] opacity-40`}
+								>
+									Microlink API image
+								</span>
 							</>
 						)}
 
@@ -281,17 +283,17 @@ export function ProjectModal({ project, onClose }) {
 								target="_blank"
 								rel="noopener noreferrer"
 								className="
-                    flex items-center gap-2
-                    px-8 py-3
-                    rounded-xl
-                    bg-zinc-200 dark:bg-zinc-800
-                    text-gray-900 dark:text-white
-                    font-medium
-                    shadow-md
-                    transition-all
-                    hover:-translate-y-1 hover:shadow-lg hover:opacity-90
-                    active:scale-95
-                  "
+									flex items-center gap-2
+									px-8 py-3
+									rounded-xl
+									bg-zinc-200 dark:bg-zinc-800
+									text-gray-900 dark:text-white
+									font-medium
+									shadow-md
+									transition-all
+									hover:-translate-y-1 hover:shadow-lg hover:opacity-90
+									active:scale-95
+								"
 							>
 								<FaGithub />
 								GitHub
