@@ -3,11 +3,11 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
 import { Josefin_Sans } from "next/font/google";
-import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaGithub, FaArrowRight } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import * as font from "@/app/fonts";
 import { GetReadme } from "../backend/GetReadme";
+import { useState, useEffect } from "react";
 
 export const josefin = Josefin_Sans({
 	subsets: ["latin"],
@@ -216,7 +216,7 @@ export function ProjectModal({ project, onClose }) {
 							hover:scale-[1.02] cursor-pointer
 						"
 						onClick={() => {
-							window.open(project.live, "_blank")
+							window.open(project.live, "_blank");
 						}}
 					>
 						{project.live && !imgError && (

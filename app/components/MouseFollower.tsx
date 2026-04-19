@@ -3,7 +3,6 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 
-
 export default function MouseGradient() {
 	const [mouse, setMouse] = useState({ x: 0, y: 0 });
 	const [shape, setShape] = useState([50, 50, 50, 50, 50, 50, 50, 50]);
@@ -50,6 +49,7 @@ export default function MouseGradient() {
 	}, []);
 
 	const finalShape = `${shape[0]}% ${shape[1]}% ${shape[2]}% ${shape[3]}% / ${shape[4]}% ${shape[5]}% ${shape[6]}% ${shape[7]}%`;
+	
 	const followerColor =
 		mounted && resolvedTheme === "dark"
 			? "hsla(255 100% 100% / 0.37)"
@@ -65,7 +65,7 @@ export default function MouseGradient() {
 					position: "absolute",
 					top: mouse.y - size,
 					left: mouse.x - size,
-					background: `radial-gradient(circle ${size}px at ${size}px ${size}px, ${followerColor} 40%,var(--background) 70%, transparent 90%)`,
+					// background: `radial-gradient(circle ${size}px at ${size}px ${size}px, ${followerColor} 40%,var(--background) 70%, transparent 90%)`,
 				}}
 				className="transition-transform z-[-99] MouseFollower"
 			/>

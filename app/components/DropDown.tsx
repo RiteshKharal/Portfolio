@@ -1,8 +1,11 @@
 "use client";
 
+import { FaStar } from "react-icons/fa";
+
 import { ChevronDown } from "lucide-react";
 import React, { useState, useEffect, useRef } from "react";
 import { Ubuntu, Nunito } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const ubuntu = Ubuntu({
 	subsets: ["latin"],
@@ -24,7 +27,7 @@ type ComponentTypes = {
 	}[];
 };
 
-export default function Component({ title, options }: ComponentTypes) {
+function Component({ title, options }: ComponentTypes) {
 	const [filterOpen, setFilterOpen] = useState<boolean>(false);
 	const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -101,6 +104,35 @@ export default function Component({ title, options }: ComponentTypes) {
 					)}
 				</div>
 			</div>
+		</div>
+	);
+}
+
+export default function NavigationDropDown() {
+	const router = useRouter()
+	return (
+		<div className="invisible md:visible ">
+			<Component
+				title={
+					<span className="flex flex-row gap-3 h-0 text-center place-items-center-safe justify-center self-center p-0">
+						<FaStar /> Modes
+					</span>
+				}
+				options={[
+					{
+						OptionName: "🏠 Minimal mode",
+						OptionCallBack: () => {
+							router.push('/');
+						},
+					},
+					{
+						OptionName: "🎮 Game mode",
+						OptionCallBack: () => {
+							router.push('/Game');
+						},
+					},
+				]}
+			/>
 		</div>
 	);
 }
