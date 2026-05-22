@@ -96,7 +96,12 @@ export default function RootLayout({
 			suppressHydrationWarning
 			data-scroll-behavior="smooth"
 		>
-			<head></head>
+			<head>
+				<meta
+					name="google-site-verification"
+					content="Kr8Nm7ZyBEqiV2qDhaFrg4mIaAfpTrOdscsxVbi2fvA"
+				/>
+			</head>
 			<body className="bg-background text-foreground antialiased overflow-x-hidden">
 				<NextThemesProvider
 					attribute="class"
