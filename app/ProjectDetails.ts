@@ -1,17 +1,19 @@
 //  -- TEMPLATE --
-// {
-//     title: "",
+/*
+ {
+    title: "",
 
-//     description: "",
+    description: "",
 
-//     image: "/",
+   image: "/",
 
-//     tech: ["React", "Tailwind", "Next.js"],
+   tech: ["React", "Tailwind", "Next.js"],
 
-//     live: "",
+    live: "",
 
-//     github: "https://github.com/RiteshKharal/",
-//   },
+    github: "https://github.com/RiteshKharal/",
+   },
+*/
 
 export const ProjectsDetails = [
 	{
@@ -67,5 +69,18 @@ export const ProjectsDetails = [
 		live: "https://ColorChooser.vercel.app",
 
 		github: "https://github.com/RiteshKharal/ColorChooser",
+	},
+	{
+		title: "NotedLife",
+
+		description: "A place to share memories.",
+
+		image: "/",
+
+		tech: ["React", "Tailwind", "Next.js"],
+
+		live: "https://notedlife.vercel.app/",
+
+		github: "https://github.com/RiteshKharal/notedlife",
 	},
 ];
